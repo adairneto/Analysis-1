@@ -1330,6 +1330,14 @@ With Cauchy sequences, Georg Cantor gave another construction of the real number
 
 \subsection{Infinite Series}
 
+In this section, we are going to discuss the meaning of infinite sums like
+\[
+	\frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^n} + \ldots = 1
+\]
+and give meaning to this equality.
+
+This infinite sum is called a \textbf{series}, and the main interest in the study of series is whether or not the series converges. To compute to which value it converges is often a cumbersome task and will not be our primary concern.
+
 \begin{definition}
 	Let $(a_n)$ be a sequence. An \textbf{infinite series} is defined as
 	\[
@@ -1577,7 +1585,7 @@ Notice that the converse is false. Consider the \textbf{alternating harmonic ser
 	Since the series $\sum c^n$ converges absolutely (geometric series), by the \hyperref[absconvlemma]{previous lemma}, $\sum a_n$ converges absolutely.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{ratiorootremark}
 	In general, we compute
 	\[
 		\lim \left| \frac{a_{n+1}}{a_n} \right| = L
@@ -1602,6 +1610,37 @@ Notice that the converse is false. Consider the \textbf{alternating harmonic ser
 	
 	Hence, the series converges.
 \end{example}
+
+\begin{theorem}[Root Test (Cauchy)]
+	If there exists $c \in \textbf{R}$ such that $\sqrt[n]{|a_n|} \leq c < 1$ for all $n$ sufficiently large, then the series $\sum a_n$ converges absolutely.
+\end{theorem}
+
+\begin{proof}
+	Suppose that $\sqrt[n]{|a_n|} \leq c < 1$. Then $|a_n| \leq c^n$ for all $n$ sufficiently large. Since $\sum c^n$ converges, it follows from the comparison test that $\sum |a_n|$ converges.
+\end{proof}
+
+\begin{remark}
+	In general, we compute $\lim \sqrt[n]{|a_n|} = L$ and the previous \hyperref[ratiorootremark]{remark} also applies.
+\end{remark}
+
+\begin{example}
+	Does the series \[ \sum_{n=1}^\infty \frac{n}{2^n} \] converges?
+	
+	Notice that
+	\[
+		\lim \sqrt[n]{\frac{n}{2^n}} = \lim \frac{\sqrt[n]{n}}{\sqrt[n]{2^n}} = \frac{1}{2} < 1
+	\]
+	
+	Hence, the series converges.
+\end{example}
+
+\textbf{Exercise.} Show that $\lim \sqrt[n]{n} = 1$.
+
+\newpage
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{Analysis_Notes.bib}
+\addcontentsline{toc}{section}{References}
 
 %\appendix
 %
