@@ -79,7 +79,7 @@
     pdftitle={Analysis: Study Notes},
     pdfpagemode=FitH,
 }
-\author{\href{https://adairneto.github.io/}{Adair Antonio da Silva Neto}}
+\author{\href{https://github.com/adairneto}{Adair Antonio da Silva Neto}}
 \title{Analysis: Study Notes}
 
 \begin{document}
@@ -733,7 +733,7 @@ Also, every ordered set with a least-upper-bound property also has the greatest-
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{sup-inf}
-  \caption{Definition of $\sup A$ and $\inf A$ (Source: ABBOTT)}
+  \caption{Definition of $\sup A$ and $\inf A$ \cite{abbott2001understanding}}
   \label{fig:sup-inf}
 \end{figure}
 
@@ -1635,6 +1635,491 @@ Notice that the converse is false. Consider the \textbf{alternating harmonic ser
 \end{example}
 
 \textbf{Exercise.} Show that $\lim \sqrt[n]{n} = 1$.
+
+\subsection{Rearrangements}
+
+Intuitively, a rearrangement of a series is a permutation of its terms into another order.
+
+For example, we know that the series \[ \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \ldots = p \neq 0 \]
+
+In fact, as we will prove later in this text, $\ln (1+x) = \sum_{n=0}^\infty \frac{(-1)^{n}}{n+1} x^{n+1}$. Hence, $p = \ln (2)$.
+
+The question that motivates this section is: Does changing the order of the terms change the sum?
+
+Notice that
+\begin{equation*}
+	\begin{aligned}
+		p &=  1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \frac{1}{7} - \frac{1}{8} + \frac{1}{9} - \frac{1}{10} + \frac{1}{11} - \frac{1}{12} + \ldots \\
+		&= \left( 1 - \frac{1}{2} \right) - \frac{1}{4} + \left( \frac{1}{3} - \frac{1}{6} \right) - \frac{1}{8} + \left( \frac{1}{5} - \frac{1}{10} \right) - \frac{1}{12} + \ldots \\
+		&= \frac{1}{2} - \frac{1}{4} + \frac{1}{6} - \frac{1}{8} + \frac{1}{10} - \frac{1}{12} + \ldots = \frac{1}{2} p
+	\end{aligned}
+\end{equation*}
+
+Hence,
+\[
+	p = \frac{p}{2} \underset{p \neq 0}{\implies} 1 = 2
+\]
+which is a contradiction.
+
+This example motivates the following definition.
+
+\begin{definition}[Rearrangement]
+	Let $\sum_{k=1}^\infty a_k$ be a series. We say that $\sum_{k=1}^\infty b_k$ is a \textbf{rearrangement} of $\sum_{k=1}^\infty a_k$ if there's a bijection $f: \textbf{N} \longrightarrow \textbf{N}$ such that $b_{f(k)} = a_k$ for all $k \in \textbf{N}$.
+\end{definition}
+
+\begin{theorem}
+	If a series converges absolutely, then any rearrangement of the series converges to the same limit.
+\end{theorem}
+
+\begin{proof}
+	Suppose that $\sum_{k=1}^\infty a_k$ converges absolutely to $A \in \textbf{R}$, and let $\sum_{k=1}^\infty b_k$ be a rearrangement of $\sum_{k=1}^\infty a_k$. Define
+	\[
+		s_n = \sum_{k=1}^n a_k \text{ and } t_m = \sum_{k=1}^m b_k
+	\]
+	
+	We want to show that $\lim t_m = A$. 
+	
+	Let $\varepsilon > 0$. By hypothesis, $\lim s_n = A$. Hence, choose $N_1 \in \textbf{N}$ such that
+	\[
+		|s_n - A| < \frac{\varepsilon}{2}
+	\]
+	for all $n > N_1$. Since the convergence is absolute, we can choose $N_2 \in \textbf{N}$ such that
+	\[
+		\sum_{k=m+1}^n |a_k| < \frac{\varepsilon}{2}
+	\]
+	for all $n > m > N_2$.
+	
+	Notice that $sum_{k=1}^\infty |a_k|$ converges, but not necessarily to $A$. 
+	
+	Now, let $N = \max \{ N_1, N_2 \}$. We will consider the part of the rearranged series where the terms $\{ a_1, a_2, \ldots, a_N \}$ does not appear. In order to do that, we choose
+	\[
+		M = \max \{ f(k) : 1 \leq k \leq N \}
+	\]
+	where $f$ is the function that rearranges the terms.
+	
+	Since $f$ is injective, $N \leq M$. Let $n \geq M$. Then,
+	\[
+		\{ a_1, a_2, \ldots, a_N \} \subseteq \{ b_1, b_2, \ldots, b_m \}
+	\]
+	This means that we moved so far in the rearranged series so that all terms $a_1, \ldots, a_N$ were included. 
+	
+	Thus, $(t_m - s_N)$ consists of the values such that their absolute value appear in $\sum_{k=N+1}^\infty |a_k|$. Our choice of $N_2$ guarantees that $|t_m - s_N| < \varepsilon / 2$. Then,
+	\begin{equation*}
+		\begin{aligned}
+			|t_m - A| &= |t_m - s_N + s_N - A| \\
+			&\leq |t_m - s_N| + |s_N - A| \\
+			&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+		\end{aligned}
+	\end{equation*}
+	whenever $m > M \geq N_2$.
+\end{proof}
+
+\textbf{Exercise.} Show that
+\[
+	\sum_{n=1}^\infty \frac{1}{2n-1} = + \infty \text{ and } \sum_{n=1}^\infty \frac{-1}{2n} = - \infty
+\]
+
+The following theorem states that changing conveniently the order of the terms of a conditionally convergent series, it is possible to make its sum to be equal to any given real number.
+
+\begin{theorem}[Riemann]
+	Let $\sum a_n$ be a conditionally convergent series and $- \infty \leq a \leq b \leq + \infty$. Then there exists a rearrangement $\sum b_n$, with partial sums $t_n$ such that
+	\[
+		\liminf_{n \to \infty} t_n = a \text{ and } \limsup_{n \to \infty} t_n = b
+	\]
+\end{theorem}
+
+\begin{proof}[Idea of the proof]
+	Let $\sum a_n$ be a conditionally convergent series. Fix a real number $c > 0$.
+	
+	We start with the sum of the positive terms $p_n$ of $\sum a_n$ in their original order until the moment that, when we sum $a_n$, the sum goes beyond $c$ for the first time. Notice that this is possible because $\sum p_n = + \infty$.
+	
+	To this sum, we add the negative terms, also in their natural order, stopping when we sum $a_{n_2}$ such that this sum is lower than $c$.
+	
+	Repeating this algorithm, we obtain a new series whose terms are the same ones from $\sum a_n$, but in a different order.
+	
+	Notice that $|s_{n_{k-1}} - c| < a_{n_k}$, where the change of sign happened. Since $\lim a_n = 0$, this new series converges.
+\end{proof}
+
+\newpage
+\section{Basic Topology of \textbf{R}}
+
+In this section, we are going to go deeper in our previous study of sets, discussing open and closed sets, compact sets, and perfect sets.
+
+\subsection{Open and Closed Sets}
+
+\begin{definition}[Interior point]
+	Let $O$ be a subset of $\textbf{R}$. A point $x$ is an \textbf{interior point} of $O$ if there is an $\varepsilon$-neighbourhood of $x$ contained in $O$, i.e., $V_{\varepsilon}(x) \subseteq O$ 
+\end{definition}
+
+\begin{definition}[Open set]
+	Let $O \subseteq \textbf{R}$. Then $O$ is said to be \textbf{open} if every point $x \in O$ is an interior point of $O$.
+\end{definition}
+
+\begin{example}
+	\begin{enumerate} \hfill
+		\item $\textbf{R}$ is open.
+		\item $\emptyset$ is open (vacuously true).
+		\item The open interval $(c, d)$ is open. To see that, take $x \in (c,d)$ and take $varepsilon = \min \{ x-c, d-x \}$. Then $V_{\varepsilon}(x) \subseteq (c,d)$. Does this proof remains valid for $(c,d]$?
+	\end{enumerate}
+\end{example}
+
+\begin{theorem}\label{union-inter-open}
+	\begin{itemize} \hfill
+		\item[a)] The union of any collection of open sets is open.
+		\item[b)] The intersection of a finite collection of open sets is open.
+	\end{itemize}
+\end{theorem}
+
+\begin{proof}
+	\textbf{a)} Let $\{ O_\lambda : \lambda \in \Lambda \}$ be a collection of open sets. Define $O = \bigcup_{\lambda \in \Lambda} O_\lambda$ and $a \in O$. Then $a \in O_{\lambda'}$ for some $\lambda' \in \Lambda$. Since $O_{\lambda'}$ is open, then there exists $\varepsilon > 0$ such that $V_\varepsilon(a) \subseteq O_{\lambda'} \subseteq O$.
+	
+	\textbf{b)} Let $\{ O_1, \ldots, O_N\}$ be a finite collection of open sets. Define $O = \bigcap_{k=1}^N$ and $a \in O$. Then $a \in O_k$ for all $k = 1, \ldots, N$. Since each $O_k$ is open, there exists $\varepsilon_k > 0$ such that $V_\varepsilon(a) \subseteq O_k$. Take $\varepsilon = \min \{ \varepsilon_1, \ldots, \varepsilon_N \}$. Then
+	\[
+		V_\varepsilon(a) \subseteq V_{\varepsilon_k}(a) \subseteq O_k
+	\]
+	for all $k = 1, \ldots, N$. Hence, $V_\varepsilon(a) \subseteq O$.
+\end{proof}
+
+\begin{example}
+	Let $I_n = \left( \frac{-1}{n}, \frac{1}{n} \right)$, $n \in \textbf{N}$. Then $\bigcap_{n \in \textbf{N}} I_n = \{ 0 \}$ is not open.
+\end{example}
+
+\begin{definition}[Limit and isolated points]
+	A point $x$ is a \textbf{limit point} (or \textbf{accumulation points}) of a set $A$ if every $\varepsilon$-neighbourhood of $x$ intersects the set $A$ in some point other than $x$.
+	
+	A point $a \in A$ is an \textbf{isolated point} if $a$ is not a limit point of $A$.
+\end{definition}
+
+\begin{theorem}\label{limpointseq}
+	A point $x$ is a limit point of a set $A$ if and only if $x = \lim a_n$ for some sequence $(a_n)$ contained in $A$ satisfying $a_n \neq x$ for all $n \in \textbf{N}$.
+\end{theorem}
+
+\begin{proof}
+	$(\Rightarrow)$ Suppose that $x$ is a limit point of $A$. We are going to construct a sequence such that $a_n \longrightarrow x$.
+	
+	Since $x$ a limit point, for each $n \in \textbf{N}$ we can choose an element of the set $V_{1/n}(x) \cap A$ other than $x$, which we will call $a_n$.
+	
+	Given $\varepsilon > 0$, take $N \in \textbf{N}$ such that $1/N < \varepsilon$. Then, for all $n \geq N$.
+	\[
+		| a_n - x | < \frac{1}{N} < \varepsilon
+	\]
+	i.e., $a_n \longrightarrow x$.
+	
+	$(\Leftarrow)$ Assume that $\lim a_n = x$, where $a_n$ is an element of $A$ other than $x$. Let $V_\varepsilon(x)$ be arbitrary. By the definition of convergence, there exists a term $a_N \in V_\varepsilon(x)$.
+\end{proof}
+
+Notice that a limit point may not belong to the set $A$.
+
+\begin{definition}[Closed set]
+	A set $F \subseteq{R}$ is \textbf{closed} if $F$ contains all of its limit points.
+\end{definition}
+
+In Analysis, to be `closed' is with respect to the limiting operation. A closed set is a set where convergent sequences within the set have limits that are also in the set.
+
+\begin{example}
+	Consider
+	\[
+		A = \left\{ \frac{1}{n} : n \in \textbf{N} \right\}
+	\]
+	
+	Each point of $A$ is isolated. In fact, given $1/n \in A$, choose $\varepsilon = \frac{1}{n} - \frac{1}{n+1}$. Then \[ V_\varepsilon(1/n) \cap A = \left\{ \frac{1}{n} \right\} \] Then, $1/n$ is isolated. 
+	
+	Although all of the points of $A$ are isolated, the set does have one limit point, $0$. Hence, $A$ is not closed. However, the set $F = A \cup \{0\}$ is closed and is called the \textbf{closure} of $A$. 
+\end{example}
+
+\begin{example}
+	The set $[c,d] = \{ x \in \textbf{R} : c \leq x \leq d \}$ is closed.
+	
+	In fact, let $x$ be a limit point of $[c,d]$. Then, by the Theorem \ref{limpointseq}, there exists $(x_n) \subseteq [c,d]$ such that $x_n \to x$. We're going to prove that $x \in [c,d]$. Since $c \leq x_n \leq d$, for all $n \in \textbf{N}$, then $c \leq \lim x_n \leq d$. Hence, $[c,d]$ is closed.
+\end{example}
+
+\begin{example}
+	Consider the set of rational numbers $\textbf{Q} \subseteq \textbf{R}$. The set of limit points of $\textbf{Q}$ is $\textbf{R}$.
+	
+	Let $y \in \textbf{R}$. Then consider the neighbourhood $V_{\varepsilon}(y) = (y - \varepsilon, y + \varepsilon)$. By the density of $\textbf{Q}$ in $\textbf{R}$, there exists $r \neq y$ such that $r \in V_{\varepsilon}(y)$. Thus, $y$ is a limit point of $\textbf{Q}$.
+\end{example}
+
+With the last example, we can restate the density of $\textbf{Q}$ in $\textbf{R}$.
+
+\begin{theorem}[Density of $\textbf{Q}$ in $\textbf{R}$]
+	Given $y \in \textbf{R}$, there exists a sequence of rational numbers that converges to $y$. 
+\end{theorem}
+
+\begin{definition}[Closure]
+	Given a set $A \subseteq \textbf{R}$, let $L$ be the set of all limit points of $A$. The \textbf{closure} of $A$ is defined as $\bar{A} = A \cup L$.
+\end{definition}
+
+Notice that a set $F \subseteq \textbf{R}$ is closed if, and only if, every Cauchy sequence contained in $\textbf{R}$ which has a limit, the limit is also in $F$.
+
+\begin{example}
+	\begin{enumerate}
+		\item If $A = (a,b)$, then $\bar{A} = [a,b]$.
+		\item If $A = \textbf{Q}$, then $\bar{A} = \textbf{R}$.
+		\item If $A = [a,b]$, then $\bar{A} = [a,b]$.
+	\end{enumerate}
+\end{example}
+
+\begin{theorem}
+	For any $A \subseteq \textbf{R}$, the closure $\bar{A}$ is a closed set and is the smallest closed set containing $A$.
+\end{theorem}
+
+\begin{proof}
+	Let $L$ denote the set of limit points. Then $\bar{A} = A \cup L$ contains all limit points of $A$.
+	
+	However, any closed set containing $A$ must contain $L$. Hence, $\bar{A}$ is the smallest closed set containing $A$.
+\end{proof}
+
+\begin{definition}[Complement]
+	Let $O \subseteq \textbf{R}$. Then the \textbf{complement} of $O$ is defined as
+	\[
+		O^c = \{ x \in \textbf{R} : x \notin O \}
+	\]
+\end{definition}
+
+An important relationship between open and closed sets is given by the following theorem.
+
+\begin{theorem}
+	A set $O$ is open if, and only if, $O^c$ is closed.
+\end{theorem}
+
+\begin{proof}
+	Let $O \subseteq \textbf{R}$ be an open set. To show that $O^c$ is closed, we need to prove that $O^c$ contains all of its limit points. If $x$ is a limit point of $O^c$, then every neighbourhood of $x$ contains a point of $O^c$. Now, if $x \in O$, there exists $\varepsilon > 0$ such that $V_{\varepsilon}(x) \subseteq O$, which is not possible. Hence, $x \in O^c$.
+	
+	Reciprocally, assume that $O^c$ is closed and let $x \in O$. Since $O^c$ is closed, $x$ is not a limit point of $O^c$. By the definition of limit point, there exists $\varepsilon > 0$ such that $V_{\varepsilon}(x)$ does not intersect $O^c$, i.e., $V_{\varepsilon}(x) \subseteq O$, and, hence, $O$ is open.
+\end{proof}
+
+\begin{corollary}
+	$F$ is closed if, and only if, $F^c$ is open.
+\end{corollary}
+
+\begin{proof}
+	Follows from the previous proof, observing that $(A^c)^c = A$.
+\end{proof}
+
+\begin{theorem}\label{union-inter-closed}
+	\begin{itemize} \hfill
+		\item[a)] The union of a finite collection of closed sets is closed.
+		\item[b)] The intersection of any collection of closed sets is closed.
+	\end{itemize}
+\end{theorem}
+
+\begin{proof}
+	Using DeMorgan's laws, for a collection $\{ E_{\lambda} : \lambda \in \Lambda\}$, we have
+	\[
+		\left( \bigcup_{\lambda \in \Lambda} E_\lambda \right)^c = \bigcap_{\lambda \in \Lambda} E_\lambda^c \text{ and } \left( \bigcap_{\lambda \in \Lambda} E_\lambda \right)^c = \bigcup_{\lambda \in \Lambda} E_\lambda^c
+	\]
+	and the result follows immediately by the Theorem \ref{union-inter-open}.
+\end{proof}
+
+\subsection{Compact Sets}
+
+Compact sets are generalization of closed intervals.
+
+\begin{definition}[Compactness]
+	A set $K \subseteq \textbf{R}$ is \textbf{compact} if every sequence in $K$ has a subsequence that converges to a limit that is also in $K$.
+\end{definition}
+
+\begin{example}
+	The interval $[c,d]$ is compact. That can be seen by using Bolzano-Weierstrass Theorem, noticing that a closed interval is a closed set.
+\end{example}
+
+Generalizing this example, we can obtain an equivalent definition for compactness.
+
+\begin{theorem}[Heine-Borel]\label{heine-borel}
+	A set $K \subseteq \textbf{R}$ is compact if, and only if, it is closed and bounded.
+\end{theorem}
+
+\begin{proof}
+	Suppose that $K$ is compact. First, we'll assume that $K$ is not bounded. Then, there exists $x_1 \in K$ such that $|x_1| > 1$, and $x_2 \in K$ such that $|x_2| > 2$, and, for all $n \in \textbf{N}$ we can produce $x_n \in K$ such that $|x_n| > n$.
+	
+	Since we assumed that $K$ is compact, $(x_n)$ must have a convergent subsequence $(x_{n_k})$. And since $(x_{n_k})$ is not bounded, $(x_{n_k})$ does not converge. Hence, by contradiction, $K$ must be bounded.
+	
+	Now, to show that $K$ is closed, let $x = \lim x_n$, with $(x_n) \subseteq K$. We're going to show that $x \in K$. Since $K$ is compact, $(x_n)$ has a convergent subsequence $(x_{n_k})$. Since $K$ is compact and $(x_n) \to x$, we obtain $x \in K$. Hence, $K$ is closed.
+	
+	To prove the converse statement, suppose that $K$ is bounded and closed and $(x_n) \subseteq K$. By the Bolzano-Weierstrass Theorem, $(x_n)$ has a convergent subsequence $(x_{n_k}) \subseteq K$. Since $K$ is closed, $\lim x_{n_k} = x \in K$. Hence, $K$ is compact.
+\end{proof}
+
+\begin{theorem}[Nested Compact Set Property]
+	If $K_1 \supseteq K_2 \supseteq K_3 \supseteq \ldots$ is a nested sequence of non-empty compact sets, then the intersection is non-empty.
+	\[
+		\bigcap_{n=1}^\infty \neq \emptyset
+	\]
+\end{theorem}
+
+\begin{proof}
+	For each $n \in \textbf{N}$, let $x_n \in K_n$. Then $(x_n) \subseteq K_1$ and, since $K_1$ is compact, then there exists a subsequence $(x_{n_k}) \subseteq K_1$ such that $\lim x_{n_k} = x \in K_1$.
+	
+	Notice that $x \in K_n$ for every $n \in \textbf{N}$. Let $n_0 \in \textbf{N}$. Then, the terms of the sequence $(x_n)$ are in $k_{n_0}$, for all $n \geq n_0$. Ignoring a finite number of terms $n_k < n_0$, the same sequence $(x_{n_k})$ is also contained in $K_{n_0}$ and converges to $x = \lim x_{n_k}$ in $K_{n_0}$. Since $n_0$ is arbitrary, $x$ is in the intersection of all $K_n$, as we wanted. 
+\end{proof}
+
+A third way of defining compact sets is in terms of open covers and finite subcovers. 
+
+\begin{definition}[Open cover]
+	Let $A \subseteq \textbf{R}$. An \textbf{open cover} for $A$ is a collection of open sets $\{ O_\lambda : \lambda \in \Lambda \}$, possibly infinite, whose union contains the set $A$. I.e.,
+	\[
+		A \subseteq \bigcup_{\lambda \in \Lambda} O_\lambda
+	\]
+	
+	Given an open cover for $A$, a \textbf{finite subcover} is a finite subcollection of the original collection of open sets, whose union still completely contains $A$. I.e.,
+	\[
+		A \subseteq O_{\lambda_1} \cup O_{\lambda_2} \cup \ldots \cup O_{\lambda_n} 
+	\]
+\end{definition}
+
+\begin{example}
+	Consider the open interval $A = (0,1)$. For each point $x \in (0,1)$ let $O_x = \left( \frac{x}{2}, 1 \right)$. Then the infinite collection $\{ O_x : x \in (0,1) \}$ is an open cover of $(0,1)$.
+	
+	Notice that is not possible to find a finite subcover. Assume that a finite subcollection $\{ O_{x_1}, O_{x_2}, \ldots , O_{x_n} \}$ covers $A$.
+	
+	Let $x' = \min \{ x_1, x_2, \ldots, x_n \}$. Now notice that the real number $y$, such that $0 < y < \frac{x'}{2}$ is not contained in the union $\bigcup_{i=1}^n O_{x_i}$. 
+\end{example}
+
+\begin{example}
+	Consider the closed interval $B = [0,1]$. If $x \in [0,1]$, then the sets $O_x = \left( \frac{x}{2}, 1 \right)$ are an open cover of $(0,1)$. However, the end points must also be covered. Fix $\varepsilon > 0$ and let $O_0 = (-\varepsilon, \varepsilon)$ and $0_1 = (1-\varepsilon, 1+\varepsilon)$. Then, the collection
+	\[
+		\{ O_0, O_1, O_x \}
+	\]
+	is an open cover for $[0,1]$.
+	
+	Now it is possible to find a finite subcover. Choose $x'$ such that $x'/2 < \varepsilon$. Then $\{ O_0, O_1, O_x' \}$ is a finite subcover for $[0,1]$.
+\end{example}
+
+\begin{theorem}[Borel-Lebesgue]
+	Let $K \subseteq \textbf{R}$. Then the following statements are equivalent:
+	\begin{itemize}
+		\item[(i).] $K$ is compact.
+		\item[(ii).] $K$ is closed and bounded.
+		\item[(iii).] Every open cover of $K$ has a finite subcover.
+	\end{itemize}
+\end{theorem}
+
+\begin{proof}
+	We already proved the first two equivalences (see the proof of the Theorem \ref{heine-borel}). 
+	
+	First, we're going to show that (ii) $\implies$ (iii). Consider an open cover $[a,b] \subseteq O_{\lambda \in \Lambda} O_\lambda$ of the compact interval $[a,b]$. Suppose, by contradiction, that $\mathfrak{C} = (O_\lambda)_{\lambda \in \Lambda}$ doesn't admit a finite subcover.
+	
+	Take the mean point of $[a,b]$ and decompose $[a,b]$ into two intervals of length $(b-a)/2$. At least one of this intervals doesn't admit a finite subcover, that we'll call $[a_1, b_1]$. Repeating this argument, we obtain a decreasing sequence of intervals
+	\[
+		[a,b] \supseteq [a_1, b_1] \supseteq [a_2, b_2] \supseteq \ldots
+	\]
+	where $[a_n, b_n]$ has length $(b-a)/2^n$ and no interval $[a_n, b_n]$ is contained in a finite union of open sets $O_\lambda$.
+	
+	By the nested interval theorem, there exists $c \in \textbf{R}$ such that $c \in [a_n, b_n]$ for all $n \in \textbf{N}$. In particular, $c \in [a,b]$.
+	
+	By the definition of open cover, there exists $\lambda \in \Lambda$ such that $c \in O_\lambda$. Since $O_\lambda$ is open, we have $(c-\varepsilon, c+\varepsilon) \subseteq O_\lambda$, for $\varepsilon > 0$. Taking $n \in \textbf{N}$ such that
+	\[
+		\frac{b-a}{2^n} < \varepsilon
+	\]
+	we have $c \in [a_n, b_n] \subseteq (c-\varepsilon, c+\varepsilon)$ and $[a_n, b_n] \subseteq O_\lambda$. Hence, $[a_n, b_n]$ can be covered by only one open set, which is a contradiction. 
+	
+	In the general case, consider
+	\[
+		K \subseteq \bigcup_{\lambda \in \Lambda} O_\lambda
+	\]
+	where $K$ is a compact set. Take an interval $[a,b]$ that contains $K$. Let $\{ O_\lambda : \lambda \in \Lambda \}$ be an open cover of $[a,b]$, and add a new open $O_{\lambda_0} = \textbf{R} \setminus K$.
+	
+	Thus, we obtained a new cover of $[a,b]$, from which we extract, from the already proven part, a finite subcover
+	\[
+		[a,b] \subseteq O_{\lambda_0} \cup \subseteq O_{\lambda_1} \cup \ldots \cup \subseteq O_{\lambda_n}
+	\]
+	
+	Since no point of $K$ is in $O_{\lambda_0}$, we have $K \subseteq \subseteq O_{\lambda_1} \cup \ldots \cup \subseteq O_{\lambda_n}$.
+	
+	(iii) $\implies$ (ii) Assume that any open cover has a finite subcover. First, we're going to show that $K$ is bounded. For each $x \in K$, take $O_x = (x-1, x+1)$. The open cover $\{O_x : x \in K\}$ has a finite subcover $\{ O_{x_1}, \ldots, O_{x_n} \}$. Hence, $K$ is contained in a finite union of bounded sets. I.e., $K$ is bounded.
+	
+	Now, we're going to show that $K$ is closed. Suppose, by contradiction, that $(y_n)$ is a Cauchy sequence contained in $K$ with $\lim y_n = y$. To show that $K$ is closed, we must show that $y \in K$. So we assume $y \notin K$.
+	
+	Let $O_x$ the interval with center in $x$ and ray $|x-y|/2$. By hypothesis, the open cover $\{O_x : x \in K\}$ has a finite subcover $\{ O_{x_1}, \ldots, O_{x_n} \}$. Set
+	\[
+		\varepsilon_0 = \min \left\{ \frac{|x_i - y|}{2} : 1 \leq i \leq n \right\}
+	\]
+	
+	Since $(y_n) \to y$, we can find $N \in \textbf{N}$ such that $|y_n - y| < \varepsilon_0$. But then 
+	\[
+		y_N \notin \bigcup_{i=1}^n O_{x_i} 
+	\]
+	and the finite subcover does not cover all of $K$, which is a contradiction. Hence, $y \in K$ and $K$ is closed.
+\end{proof}
+
+\subsection{The Cantor Set}
+
+Let $C_0$ be the closed interval $[0,1]$. Define $C_1$ to be the $C_0$ without the open middle third.
+\[
+	C_1 = [0,1] \setminus \left( \frac{1}{3}, \frac{2}{3} \right) = \left[0, \frac{1}{3} \right] \cup \left[\frac{2}{3}, 1 \right]
+\]
+
+In a similar manner, define
+\[
+	C_2 = \left(  \left[0, \frac{1}{9} \right] \cup  \left[\frac{2}{9}, \frac{1}{3} \right] \right) \cup   \left(  \left[\frac{2}{3}, \frac{7}{9} \right] \cup  \left[\frac{8}{9}, 1 \right] \right)
+\]
+
+Inductively, each set $C_n$ consists of $2^n$ intervals of length $1/3^n$. We define the \textbf{Cantor set} $C$ to be the intersection
+\[
+	C = \bigcap_{n=0}^\infty C_n
+\]
+
+That is,
+\[
+	C = [0,1] \setminus \left[ \left( \frac{1}{3}, \frac{2}{3} \right) \cup \left( \frac{1}{9}, \frac{2}{9} \right) \cup \left( \frac{7}{9}, \frac{8}{9} \right) \cup \ldots \right]
+\]
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{cantor-set}
+  \caption{The Cantor set \cite{abbott2001understanding}}
+  \label{fig:sup-inf}
+\end{figure}
+
+The question now is: what remains in $C$? 
+
+Since $0 \in C_n$, for all $n \in \textbf{N}$, clearly $0 \in C$. By the same argument, $1 \in C$. And if $y$ is the endpoint of a closed interval in $C_n$, then $y$ is also an endpoint of one of the intervals of $C_{n+1}$. Hence, $y \in C_n$ for all $n \in \textbf{N}$, i.e., $y \in C$. Also notice that the endpoints are rational numbers of the form $m/3^n$.
+
+It is reasonable that the length of $C$ is $1$ minus the total removed length:
+\[
+	\frac{1}{3} + 2 \left( \frac{1}{9} \right) + 4 \left( \frac{1}{27} \right) + \ldots + \left( 2^{n-1} \frac{1}{3^n} \right) + \ldots = \frac{1}{3} \sum \frac{2^{n-1}}{3^{n-1}} = \frac{1}{3} \frac{1}{1-\frac{2}{3}} = \frac{1}{3} 3 = 1
+\]
+Hence, the Cantor set has zero length.
+
+We're going to show that $C$ is uncountable by constructing a bijection between $C$ and the set of sequences $(x_n)$, where $x_i \in \{0,1\}$ for all $i \in \textbf{N}$.
+
+Let $x \in C$. Then, $x \in C_1$. We define
+\begin{equation*}
+  x_1 = \begin{cases}
+      1, \text{ if $x$ is on the right side in $C_1$ } \\
+  	  0, \text{ if $x$ is on the left side }
+  \end{cases}
+\end{equation*}
+
+Repeating this process, we obtain a sequence of zeros and ones that corresponds to a point in the Cantor set. Since the set of sequences of zeros and ones is uncountable, then $C$ is also uncountable.
+
+Another fact about the Cantor set is that $C$ has an empty interior.
+\[
+	\text{int} C = \{ p \in C : \exists \varepsilon > 0 \text{ such that } (p-\varepsilon, p+\varepsilon) \subseteq C \}
+\]
+
+To show that, let $p \in C$. Then given $\varepsilon > 0$, there exists $n_0 \in \textbf{N}$ such that $\frac{1}{3^{n_0}} < \varepsilon$. 
+
+\begin{definition}[Perfect sets]
+	A set $P \subseteq \textbf{R}$ is \textbf{perfect} if it is closed and doesn't contain isolated points, i.e., every point of $P$ is a limit point.
+\end{definition}
+
+\begin{example}
+	Non-degenerated closed intervals $[a,b]$ are perfect.
+\end{example}
+
+In fact, the Cantor set is perfect. 
+
+First, to show that $C$ is closed, remember that each $C_n$ is a finite union of closed intervals. Therefore, $C_n$ is closed. Since $C$ is an arbitrary intersection of closed sets, $C$ is closed.
+
+Now, we need to show that $C$ contains no isolated point. Let $x \in C$. Let us construct a sequence $(x_n)$ of points of $C$, $x_n \neq x$ for all $n \in \textbf{N}$, and $x_n \to x$. Remember that the endpoints of each $C_n$ are contained in $C$.
+
+Since $x \in C_1$, there exists $x_1 \in C_1 \cap C$ such that $x_1 \neq x$ and $|x - x_1| \leq \frac{1}{3}$. Analogously, for each $n \in \textbf{N}$, there exists $x_n \in C_n \cap C$, $x_n \neq x$, such that $|x - x_n| \leq 1/3^n$. Hence, $x_n \to x$.
+
+\textbf{Exercise.} Show that a non-empty perfect set is uncountable.
+
+\newpage
+
+\section{Continuity}
 
 \newpage
 \nocite{*}
