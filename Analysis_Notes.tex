@@ -1246,7 +1246,7 @@ With Cauchy sequences, Georg Cantor gave another construction of the real number
 	\]
 	Notice that $(a_n)$ is non-decreasing. If $(a_n)$ is upper bounded, then $(a_n)$ is convergent. If $(a_n)$ is not upper bounded, then $a_n \longrightarrow \infty$. 
 	
-	In both cases, we define \[ \limsup_{n \to \infty} x_n = \lim_n a_n \]
+	In both cases, we define \[ \liminf_{n \to \infty} x_n = \lim_n a_n \]
 	
 	If $(x_n)$ is not lower bounded, then we define \[ \liminf_{n \to \infty} x_n = - \infty \]
 \end{definition}	
@@ -2120,6 +2120,71 @@ Since $x \in C_1$, there exists $x_1 \in C_1 \cap C$ such that $x_1 \neq x$ and 
 \newpage
 
 \section{Continuity}
+
+In this section, our goal is to study the limit of a function and the concept of continuity.
+
+\begin{definition}[Functional Limit]
+	Let $f : X \longrightarrow \textbf{R}$ be a real valued function defined on $X \subseteq \textbf{R}$, and let $a$ be a limit point of $X$. We say that $f$ goes to $L$ as $x$ goes to $a$, or simply
+	\[
+		\lim_{x \to a} f(x) = L
+	\]
+	if for every $\varepsilon > 0$, there exists a $\delta > 0$ such that whenever $0 < |x - a| < \delta$ it follows that
+	\[
+		|f(x) - L| < \varepsilon
+	\]
+\end{definition}
+
+This definition can also be stated in terms of sequences.
+
+\begin{theorem}
+	Let $f : X \subseteq \textbf{R} \longrightarrow \textbf{R}$, and $a$ be a limit point of $X$. Then 
+	\[
+		\lim_{x \to a} f(x) = L \iff \lim_{n \to \infty} f(a_n) = L
+	\]
+	for every sequence $(a_n)$ in $X$ such that $a_n \neq a$ and $\lim_{n \to \infty} a_n = a$.
+\end{theorem}
+
+\begin{proof}
+	Suppose that $\lim_{x \to a} f(x) = L$, and let $(a_n)$ be a sequence in $X$ such that $a_n \neq a$ and $\lim_{n \to \infty} a_n = a$.
+	
+	Given $\varepsilon > 0$, then there exists $\delta > 0$ such that $|f(x) - L| < \varepsilon$ if $x \in X$ and $0 < |x - a| < \delta$. Also, there exists $n_0 \in \textbf{N}$ such that $n > n_0$ implies $0 < |a_n - a| < \delta$. Therefore, for $n > n_0$, we have \[ | f(a_n) - L | < \varepsilon \] as desired.
+	
+	Now assume that $\lim_{x \to a} f(x) = L$ is false. Then, there exists $\varepsilon > 0$ such that for every $\delta > 0$ there exists a point $x \in X$, depending on $\delta$, for which $| f(x) - L | \geq \varepsilon$ but $0 < |x - a| < \delta$.
+	
+	Thus, taking $\delta_n = 1/n$, we find a sequence of points $a_n \in V_{\delta_n}(a)$, $(a_n) \to a$ and $a_n \neq a$ for all $n \in \textbf{N}$, where the sequence $f(a_n) \notin V_{\varepsilon}(L)$, i.e., $f(a_n)$ does not converge to $L$.
+\end{proof}
+
+\begin{corollary}
+	If $f$ has a limit, then this limit is unique.
+\end{corollary}
+
+\begin{proof}
+	Follows immediately from the theorem above and the fact that the limit of a sequence is unique.
+\end{proof}
+
+\begin{corollary}
+	Let $f$ and $g$ be real valued functions defined on a domain $X \subseteq \textbf{R}$, and assume 
+	\[
+		\lim_{x \to a} f(x) = L \text{ and } \lim_{x \to a} g(x) = M
+	\]
+	for some limit point $a$ of $X$. Then,
+	\begin{enumerate}
+		\item $\lim_{x \to a} f(x) + g(x) = L + M$.
+		\item $\lim_{x \to a} f(x) \cdot g(x) = LM$.
+		\item $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}$, if $M \neq 0$.
+		\item $\lim_{x \to a} kf(x) = kL$ for all $k \in \textbf{R}$.
+	\end{enumerate}
+\end{corollary}
+
+\begin{corollary}[Divergence Criterion for Functional Limits]
+	Let $f : A \longrightarrow \textbf{R}$ and $a$ be a limit point of $X$. If there exists two sequences $(x_n)$ and $(y_n)$ in $X$ with $x_n \neq a$ and $y_n \neq a$ and
+	\[
+		\lim x_n = c = \lim y_n \text{ but } \lim f(x_n) \neq \lim f(y_n)
+	\]
+	then the limit $ \lim_{x \to a} f(x)$ does not exist.
+\end{corollary}
+
+% R. 95, A. 122
 
 \newpage
 \nocite{*}
