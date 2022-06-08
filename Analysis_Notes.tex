@@ -16,7 +16,7 @@
 % \renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
 \usepackage[titles]{tocloft}
 \renewcommand{\cftdot}{}
-\usepackage[colorlinks=true, allcolors=magenta]{hyperref}
+\usepackage[colorlinks=true, allcolors=magenta, backref=page]{hyperref}
 \usepackage{url}
 \usepackage{graphicx}
 
@@ -70,7 +70,6 @@
 
 %\usepackage{sectsty}
 %\subsectionfont{\color{RubineRed}}
-\usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=fireopal,
@@ -268,7 +267,7 @@ This idea of order between natural numbers motivates the following theorem.
 	
 	Consider the following set $B = \{ m \in \textbf{N} : A \subseteq J_m \}$. Since $1 \notin A$, it follows that $A \subseteq J_1$. Hence, $1 \in B$. 
 	
-	Since $A$ is non-empty, there is an element $m \in A$. And since $m \notin J_m$, we have $A \not\subset J_m$. Hence, $m \notin B$, which implies that $B \neq \textbf{N}$. 
+	Given that $A$ is non-empty, there is an element $m \in A$. And since $m \notin J_m$, we have $A \not\subset J_m$. Hence, $m \notin B$, which implies that $B \neq \textbf{N}$. 
 	
 	Finally, since $1 \in B$ and $B \neq \textbf{N}$, there is $n \in B$ such that $n+1 \notin B$ by the induction principle. Therefore, $A \not\subset J_{n+1}$, and hence $n+1 \leq k$, for all $k \in A$.
 \end{proof}
@@ -380,7 +379,7 @@ Notation: If $n \in \textbf{N}$ and $n > 1$, the denote by $n-1$ the unique $m \
 \end{corollary}
 
 \begin{proof}
-	\textbf{(a)} By the Proposition \ref{finite-subset}, since $f(A) \subseteq B$, $f(A)$ is also finite. Since $f : A \longrightarrow f(A)$ is bijective, then $A$ is finite.
+	\textbf{(a)} By the Proposition \ref{finite-subset}, since $f(A) \subseteq B$, $f(A)$ is also finite. Given that $f : A \longrightarrow f(A)$ is bijective, then $A$ is finite.
 
 	\textbf{(b)} Exercise.
 \end{proof}
@@ -420,7 +419,7 @@ The following two propositions will give tools to discover whether a set is infi
 	
 	$(\Leftarrow)$ Let $B$ a proper subset of $A$ and $g : A \longrightarrow B$ a bijection.
 	
-	If $A$ is finite, then $B$ is also finite by the Corollary \ref{cor:injsurfin}. Since $g$ is bijective, then $A$ and $B$ have the same cardinality by the Lemma \ref{snd-lemma}, which is a contradiction, since $B$ is a proper subset of $A$.
+	If $A$ is finite, then $B$ is also finite by the Corollary \ref{cor:injsurfin}. Given that $g$ is bijective, then $A$ and $B$ have the same cardinality by the Lemma \ref{snd-lemma}, which is a contradiction, since $B$ is a proper subset of $A$.
 \end{proof}
 
 \subsection{Countable and Uncountable sets}
@@ -473,7 +472,7 @@ Similarly to what occured in our discussion about finite and infinite sets, some
 
 	Let $n_1$ be the smallest element of $C$ and $g(1) = f(n_1)$. Suppose that \[ g(1), g(2), \ldots, g(k) \] are already defined in order that for each $j = 2, 3, \ldots, k$, $g(j) = f(n_j)$, where $n_j$ is the smallest element of $C \setminus \{n_1, n_2, \ldots, n_{j-1} \}$.
 	
-	Now let $n_{k+1}$ be the smallest element of $C \setminus \{n_1, n_2, \ldots, n_k \}$ and let $g(k+1) = f(n_{k+1})$. Since $n_1 < n_2 < \ldots$, the function $g$ is injective (since $f$ is bijective).
+	Now let $n_{k+1}$ be the smallest element of $C \setminus \{n_1, n_2, \ldots, n_k \}$ and let $g(k+1) = f(n_{k+1})$. Given that $n_1 < n_2 < \ldots$, the function $g$ is injective (since $f$ is bijective).
 	
 	To show that $g$ is surjective, suppose that there is an element $b \in B \setminus g(\textbf{N})$. Then we would have $f^{-1}(b) \in C \setminus \{ n_1, \ldots, n_k \}$ for all $k \in \textbf{N}$. Hence, $f^{-1}(b) \geq n_{k+1}$ for all $k \in \textbf{N}$, which is a contradiction since $C$ is infinite.
 	
@@ -779,7 +778,7 @@ The following theorem is an important property of the real numbers. It states th
 	
 	In this case, $b$ is an upper bound of $S$. Using the supremum axiom, let $s_0 = \sup S$.
 	
-	Since $a > 0$, we have $s_0 < s_0 + a$, hence $s_0 - a < s_0$.
+	Given that $a > 0$, we have $s_0 < s_0 + a$, hence $s_0 - a < s_0$.
 	
 	Since $s_0$ is the least upper bound of $S$, $s_0 - a$ can not be an upper bound of $S$. Therefore, $s_0 - a < n_0 a$ for some $n_0 \in \textbf{N}$.
 	
@@ -818,7 +817,7 @@ We will end this section with two important propositions about least upper bound
 \end{proposition}
 
 \begin{proof}
-  Let $M_1$ and $M_2$ be two least upper bounds. Since $M_1$ is a least upper bound and $M_2$ is an upper bound, then by definition of the least upper bound we have $M_2 \geq M_1$. Similarly, since $M_2$ is a least upper bound and $M_1$ is an upper bound, then $M_1 \geq M_2$. Hence, $M_1 = M_2$. 
+  Let $M_1$ and $M_2$ be two least upper bounds. Given that $M_1$ is a least upper bound and $M_2$ is an upper bound, then by definition of the least upper bound we have $M_2 \geq M_1$. Similarly, since $M_2$ is a least upper bound and $M_1$ is an upper bound, then $M_1 \geq M_2$. Hence, $M_1 = M_2$. 
 \end{proof}
 
 \begin{theorem}[Existence of least upper bound]
@@ -828,9 +827,9 @@ We will end this section with two important propositions about least upper bound
 \begin{proof}
   Let $M$ be an upper bound of $E$. By the uniqueness of the least upper bound, we know that $E$ has at most one least upper bound. We want to show that $E$ has at least one least upper bound.
 
-  Since $E$ is non-empty, we can choose some $x_0 \in E$. Let $n \geq 1$ be a positive integer. By the Archimedean property, we can find $K \in \textbf{Z}$ such that $K/n \geq M$, and hence $K/n$ is also an upper bound for $E$.
+  Given that $E$ is non-empty, we can choose some $x_0 \in E$. Let $n \geq 1$ be a positive integer. By the Archimedean property, we can find $K \in \textbf{Z}$ such that $K/n \geq M$, and hence $K/n$ is also an upper bound for $E$.
   
-  Using the Archimedean property again, there exists $L \in \textbf{Z}$ such that $L/n < x_0$. Since $x_0 \in E$, $L/n$ is not an upper bound for $E$. Since $K/n$ is an upper bound but $L/n$ is not, we have $K \geq L$. 
+  Using the Archimedean property again, there exists $L \in \textbf{Z}$ such that $L/n < x_0$. Since $x_0 \in E$, $L/n$ is not an upper bound for $E$. Given that $K/n$ is an upper bound but $L/n$ is not, we have $K \geq L$. 
 
   With that, we can find an integer $L < m_n \leq K$ with the property that $m_n / n$ is an upper bound for $E$, but $(m_n-1)/n$ is not. In fact, $m_n$ is unique. This gives a well-defined and unique sequence $m_1, m_2, m_3, \ldots$ of integers with the property above. 
 
@@ -861,7 +860,7 @@ We will end this section with two important propositions about least upper bound
 
   Now we need to show that $S$ is the least upper bound for $E$.
 
-  Let $x \in E$. Since $m_n/n$ is an upper bound for $E$, we have $x \leq m_n/n$ for all $n \geq 1$. Therefore, $x \leq \lim_{n \to \infty} \frac{m_n}{n} = S$. Thus $S$ is an upper bound for $E$.
+  Let $x \in E$. Given that $m_n/n$ is an upper bound for $E$, we have $x \leq m_n/n$ for all $n \geq 1$. Therefore, $x \leq \lim_{n \to \infty} \frac{m_n}{n} = S$. Thus $S$ is an upper bound for $E$.
 
   Suppose that $y$ is an upper bound for $E$. Since $(m_n - 1)/n$ is not an upper bound, $y \geq (m_n - 1)/n$. Hence, $y \geq \lim_{n \to \infty} \frac{m_n - 1}{n} = S$. Thus the upper bound $S$ is less than or equal to every upper bound of $E$, and $S$ is thus a least upper bound of $E$. 
 \end{proof}
@@ -904,7 +903,7 @@ With this definition, we can understand convergence as follows:
 \end{proposition}
 
 \begin{proof}
-	Let $\varepsilon > 0$. Since $a$ and $b$ are limits of $(x_n$, then there exists $n_1$, $n_2$ such that
+	Let $\varepsilon > 0$. Given that $a$ and $b$ are limits of $(x_n$, then there exists $n_1$, $n_2$ such that
 	\[
 		| x_n - a | < \frac{\varepsilon}{2} \text{ for all } n > n_1
 	\]
@@ -1049,7 +1048,7 @@ The following proposition states that if a sequence has a positive limit, then, 
 \begin{proof}
 	Consider $(x_{n_j})_{j=1}^\infty$ a subsequence of $(x_n)$. By hypothesis, $x_n \longrightarrow x$. Therefore, given $\varepsilon > 0$, there exists $n_0 \in \textbf{N}$ such that $|x_n - x| < \varepsilon$, for all $n > n_0$.
 	
-	Since the sequence of the index $n_j$ is strictly increasing, there is $j_0 \in \textbf{N}$ such that $n_{j_0} > n_0$. Hence, for all $j > j_0$, \[ | x_{n_j} - x | < \varepsilon \]
+	Given that the sequence of the index $n_j$ is strictly increasing, there is $j_0 \in \textbf{N}$ such that $n_{j_0} > n_0$. Hence, for all $j > j_0$, \[ | x_{n_j} - x | < \varepsilon \]
 \end{proof}
 
 The contrapositive of this proposition is also an useful criteria for studying convergence.
@@ -1072,7 +1071,7 @@ Before proving the Bolzano-Weierstrass theorem, which is one of the most importa
 		a_1 \leq a_2 \leq a_3 \leq \ldots \leq a_n \leq \ldots \leq b_n \leq \ldots \leq b_2 \leq b_1
 	\]
 	
-	Consider the set $A = \{ a_n : n \in \textbf{N} \}$. Since $A$ is upper bounded and non-empty, let $c = \sup A$. Then $a_n \leq c \leq b_n$ for all $n \in \textbf{N}$. Which means that $c \in [a_n, b_n]$ for all $n \in \textbf{N}$.
+	Consider the set $A = \{ a_n : n \in \textbf{N} \}$. Given that $A$ is upper bounded and non-empty, let $c = \sup A$. Then $a_n \leq c \leq b_n$ for all $n \in \textbf{N}$. Which means that $c \in [a_n, b_n]$ for all $n \in \textbf{N}$.
 \end{proof}
 
 \begin{theorem}[Bolzano-Weierstrass]\label{bolz-weier}
@@ -2123,6 +2122,8 @@ Since $x \in C_1$, there exists $x_1 \in C_1 \cap C$ such that $x_1 \neq x$ and 
 
 In this section, our goal is to study the limit of a function and the concept of continuity.
 
+\subsection{Functional Limit}
+
 \begin{definition}[Functional Limit]
 	Let $f : X \longrightarrow \textbf{R}$ be a real valued function defined on $X \subseteq \textbf{R}$, and let $a$ be a limit point of $X$. We say that $f$ goes to $L$ as $x$ goes to $a$, or simply
 	\[
@@ -2134,7 +2135,7 @@ In this section, our goal is to study the limit of a function and the concept of
 	\]
 \end{definition}
 
-This definition can also be stated in terms of sequences.
+The definition of continuity can also be stated in terms of sequences.
 
 \begin{theorem}
 	Let $f : X \subseteq \textbf{R} \longrightarrow \textbf{R}$, and $a$ be a limit point of $X$. Then 
@@ -2184,7 +2185,380 @@ This definition can also be stated in terms of sequences.
 	then the limit $ \lim_{x \to a} f(x)$ does not exist.
 \end{corollary}
 
-% R. 95, A. 122
+\subsection{Continuous Functions}
+
+The concept of continuity will help us avoid `unbroken curves' or functions with `jumps' and `holes'.
+
+\begin{definition}[Continuity]
+	A function $f : X \longrightarrow \textbf{R}$ is \textbf{continuous at a point} $c \in X$ if for every $\varepsilon > 0$, there exists $\delta > 0$ such that
+	\[
+		| f(x) - f(c) | < \varepsilon
+	\]
+	for all $x \in \textbf{R}$ for which $| x - c | < \delta$.
+	
+	If $f$ is continuous at every point of $X$, then $f$ is said to be \textbf{continuous on} $X$.
+\end{definition}
+
+One of the differences from this definition to the definition of functional limit is that we require $c$ to be in the domain of $f$.
+
+An immediate result from this definition is that functions are continuous at isolated points of their domains.
+
+And if $c$ is a limit point of $X$, then our definition of continuity can be rewritten as $\lim_{x \to c} f(x) = f(c)$.
+
+\begin{example}
+\begin{itemize} \hfill
+	\item The constant function in $\textbf{R}$ is continuous.
+	\item $f(x) = x$ is continuous at $\textbf{R}$.
+\end{itemize}
+\end{example}
+
+\begin{theorem}
+	Assume $f : I \longrightarrow \textbf{R}$ and $g : I \longrightarrow \textbf{R}$ are continuous at a point $c \in I$. Then,
+	
+	\begin{enumerate}
+		\item $k f(x)$ is continuous at $c$ for all $k \in \textbf{R}$.
+		\item $f(x) + g(x)$	is continuous at $c$.
+		\item $f(x)g(x)$ is continuous at $c$.
+		\item $f(x)/g(x)$ is continuous at $c$, provided that the quotient is defined.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Let $(x_n) \in I$ such that $x_n \longrightarrow c$. Then we have $\lim f(x_n) = f(a)$ and $\lim g(x_n) = g(a)$. Then,
+	\begin{equation*}
+		\begin{aligned}
+			\lim [f+g(x_n)] &= \lim [f(x_n) + g(x_n)] = \lim f(x_n) + \lim g(x_n) \\
+			& = f(a) + g(a) = f+g(a)
+		\end{aligned}
+	\end{equation*}
+	
+	For the division,
+	\begin{equation*}
+		\begin{aligned}
+			\lim \frac{f}{g} (x_n) &= \lim \frac{f(x_n)}{g(x_n)} = \frac{\lim f(x_n)}{\lim g(x_n)} \\
+			&= \frac{f(a)}{g(a)} = \frac{f}{g} (a)
+		\end{aligned}
+	\end{equation*}
+	
+	And similarly for the product.
+\end{proof}
+
+This definition can be extended naturally for the whole interval $I$.
+
+\begin{example}
+\begin{itemize} \hfill
+	\item $P(x) = a_n x^n + \ldots + a_1 x + a_0$ is continuous.
+	\item If $p$ and $q$ are polynomials, then $p/q$ is continuous at the intervals in which $q \neq 0$.
+\end{itemize}
+\end{example}
+
+\begin{theorem}[Composition of Continuous Functions]
+	Let $f : A \longrightarrow \textbf{R}$ and $g : B \longrightarrow \textbf{R}$ be functions such that the range $f(A)$ is contained in the domain $B$, i.e., $f(A) \subseteq B$.
+	
+	If $f$ is continuous at $c \in A$, and $g$ is continuous at $f(c) \in B$, then the composition $g \circ f = g(f(x))$ is continuous at $c$.
+\end{theorem}
+
+\begin{proof}
+	Consider a sequence $(x_n) \subseteq A$ such that $(x_n) \longrightarrow c$. Since $f$ is continuous at $c$, we have $f(x_n) \longrightarrow f(c)$. 
+	
+	Since $g$ is continuous at $f(c)$, we have $g(f(x_n)) \longrightarrow g(f(c))$.
+	
+	Hence, $g \circ f$ is continuous at $c$.
+\end{proof}
+
+\begin{theorem}
+	A mapping $f : \textbf{R} \longrightarrow \textbf{R}$ is continuous if and only if the inverse image $f^{-1}(A)$ is open for every $A \subseteq \textbf{R}$.
+\end{theorem}
+
+\begin{proof}
+	Suppose that $f$ is continuous on $\textbf{R}$ and $A \subseteq \textbf{R}$ be an open set. We will show that $f^{-1}(A)$ is an open set. 
+	
+	For each $a \in f^{-1}(A)$, we have $f(a) \in A$. Since $A$ is open, there exists $\varepsilon > 0$ such that $V_{\varepsilon}(f(a)) \subseteq A$. Since $f$ is continuous at $a$, for this $\varepsilon$ we associate a $\delta > 0$ such that
+	\[
+		f(V_{\delta}(a)) \subseteq V_{\varepsilon}(f(a)) \subseteq A
+	\]
+	Which means that $V_{\delta}(a) \subseteq f^{-1}(A)$ and, therefore, $f^{-1}(A)$ is open.
+	
+	Conversely, suppose that $f^{-1}(A)$ is open for every open set $A \subseteq \textbf{R}$. Let $\varepsilon > 0$, let $A' = V_{\varepsilon}(f(a))$ is open in $\textbf{R}$ and contains $f(a)$. By hypothesis, $A = f^{-1}(A')$ is open. Hence, there exists $\delta > 0$ such that
+	\[
+		V_{\delta}(a) \subseteq A \text{ and } f(V_{\delta}(a)) \subseteq V_{\varepsilon}(f(a))
+	\]
+	Therefore, $f$ is continuous.
+\end{proof}
+
+\begin{lemma}
+	Let $f : I \longrightarrow \textbf{R}$ be a continuous function in $a \in I$. If $f(a) > 0$, then there exists $\delta > 0$ such that $f(x) > 0$ for all $x \in I \cap (a-\delta, a+ \delta)$.
+\end{lemma}
+
+\begin{proof}
+	Since $f(a) > 0$, let $\varepsilon = f(a) / a$. Since $f$ is continuous at $a$, there exists $\delta > 0$ such that $|x-a| < \delta$ implies
+	\begin{equation*}
+		\begin{aligned}
+			|f(x) - f(a)| < \varepsilon & \implies f(a) - \varepsilon < f(x) < f(a) + \varepsilon \\
+			& \implies 0 < f(a) - \frac{f(a)}{2} < f(x) < f(a) + \frac{f(a)}{2}
+		\end{aligned}
+	\end{equation*}
+	whenever $x \in I \cap V_{\delta}(a)$.
+	
+	And the proof is analogous for $f(a) < 0$.
+\end{proof}
+
+\begin{theorem}[Bolzano]\label{thm:bolzano-cont-fun}
+	Let $f : [a,b] \longrightarrow \textbf{R}$ be a continuous function such that $f(a)f(b)<0$. Then there exists $c \in [a,b]$ such that $f(c) = 0$.
+\end{theorem}
+
+\begin{proof}
+	Suppose, without loss of generality, that $f(a) < 0$ and $f(b) > 0$. We will consider the set \[ A = \{x \in [a,b] : f(x) < 0\} \]
+	
+	Since $A \subseteq [a,b]$, $A$ is bounded. And since $a \in A$, $A \neq \emptyset$. Let $c = \sup A$. We will show that $a < c$.
+	
+	And since $f(a) < 0$, there exists $\delta_1 > 0$ such that $a + \delta_1 < b$ and $f(x) < 0$ for all $x \in [a, a+\delta_1)$. hence, $c \geq a+\delta_1 > a$.
+	
+	Now we will show that $f(c) \leq 0$ and $c < b$. By the definition of supremum, there exists a sequence $(a_n) \subseteq A$ such that $a_n \longrightarrow c$. Since $f$ is continuous $f(a_n) \longrightarrow f(c)$. 
+	
+	Since $f(a_n) < 0$ for all $n \in \textbf{N}$, it follows that $f(c) \leq 0$. In particular, $c<b$ and, therefore, $a < c < b$.
+	
+	Suppose that $f(c) < 0$. Then there exists $\delta_2 > 0$ such that $(c - \delta_2, c+\delta_2) \subseteq [a,b]$ and $f(x) < 0$, for all $x \in (c - \delta_2, c+\delta_2)$.
+	
+	Hence, $V_{\delta_2}(c) \subseteq A$ and $c$ is not the supremum of $A$, which contradicts our hypothesis that $c = \sup A$. Hence, $f(c) = 0$.
+\end{proof}
+
+\begin{theorem}[Intermediate Value Theorem]
+	Let $f:[a,b] \longrightarrow \textbf{R}$ be a continuous function. Then, for each $\gamma$ between $f(a)$ and $f(b)$, there exists $c \in [a,b]$ such that $f(c) = \gamma$.
+\end{theorem}
+
+\begin{proof}
+	Suppose that $f(a) < \gamma < f(b)$. We define $g(x) = f(x) - \gamma$.
+	
+	Since $g$ is continuous, we have $g(a) = f(a) - \gamma < 0$. And $g(b) = f(b) \gamma > 0$.
+	
+	By the \hyperref[thm:bolzano-cont-fun]{Bolzano's theorem}, there exists $c \in (a,b)$ such that $g(c) = 0$, i.e., $f(c) - \gamma = 0$. Hence, $f(c) = \gamma$.
+\end{proof}
+
+\begin{definition}[Bounded functions]
+	Let $f : I \subseteq \textbf{R} \longrightarrow \textbf{R}$.
+	\begin{itemize}
+		\item $f$ is \textbf{upper bounded} if there exists $B \in \textbf{R}$ such that $f(x) \leq B$, for all $x \in I$.
+		\item $f$ is \textbf{lower bounded} if there exists $A \in \textbf{R}$ such that $A \leq f(x)$, for all $x \in I$.
+		\item $f$ is \textbf{bounded} if $f$ is both upper bounded and lower bounded.
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}
+	Every continuous functions $f : [a,b] \longrightarrow \textbf{R}$ is bounded.
+\end{theorem}
+
+\begin{proof}
+	First, we are going to show that $f$ is upper bounded. Suppose that this is not the case. Then, there would be a sequence $(x_n) \subseteq [a,b]$ such that $f(x_n) > n$, for all $n \in \textbf{N}$.
+	
+	Since $[a,b]$ is compact, there exists a subsquence $(x_{n_k}) \subseteq (x_n)$ which converges to $x \in [a,b]$. And since $f$ is continuous, $f(x_{n_k})$ converges to $f(x)$. In particular, $f(x_{n_k})$ is bounded. But this contradicts our hypothesis that $f(x_{n_k}) > n_k$ for all $k \in \textbf{N}$.
+	
+	Analogously, we can proof that $f$ is lower bounded.
+\end{proof}
+
+\begin{theorem}[Weierstrass]
+	Every continuous function $f : [a,b] \longrightarrow \textbf{R}$ has a maximum and minimum value, i.e., there exists $c, d \in [a,b]$ such that
+	\[
+		f(c) \leq f(x) \leq f(d) , \, \forall x \in [a,b]
+	\]
+\end{theorem}
+
+\begin{proof}
+	We already proved that $f$ is bounded, i.e., $f([a,b])$ is bounded. 
+	
+	Let $\beta = \sup \{ f([a,b]) \}$ and $\alpha = \inf \{ f([a,b]) \}$.
+	
+	By the definition of the supremum, there exists a sequence $(x_n) \subseteq [a,b]$ such that $f(x_n) \longrightarrow \beta$. Since $(x_n)$ is bounded, there exists a subsequence $(x_{n_k})$ which converges to a point $d \in [a,b]$.
+	
+	Now, since the function $f$ is continuous, we have $f(x_{n_k}) \longrightarrow f(d)$. Given that $f(x_{n_k})$ is a  subsequence of $f(x_n)$, we have $f(x_{n_k}) \longrightarrow \beta$, and hence $\beta = f(d) = \sup \{ f([a,b]) \}$.
+	
+	In an analogous way, it is proved that there exists $c \in [a,b]$ such that $f(c) = \alpha = \inf \{ f([a,b]) \}$. Therefore,
+	\[
+		f(c) \leq f(x) \leq f(d) , \, \forall x \in [a,b]
+	\]
+\end{proof}
+
+\begin{example}
+	$f:(0,1] \longrightarrow \textbf{R}$, where $f(x) = \frac{1}{x}$ does not have a maximum value.
+\end{example}
+
+The next theorem is an immediate consequence of the previous two theorems. However, we will present an alternative and elucidating proof.
+
+\newpage
+
+\begin{theorem}
+	If $X \subseteq \textbf{R}$ is compact and $f$ is continuous, then $f(X)$ is compact.
+\end{theorem}
+
+\begin{proof}
+	Suppose that $f : X \longrightarrow Y$ is a continuous function and $X$ is compact. 
+	
+	Let $\{ O_\lambda \}$ be an open cover of $f(X)$. Since $f$ is continuous, each set $f^{-1}(O_\lambda)$ is open. And since $X$ is compact, there are finitely many indices, $\lambda_1, \ldots, \lambda_n$, such that
+	\[
+		X \subseteq f^{-1}(O_{\lambda_1}) \cup \ldots \cup f^{-1}(O_{\lambda_n})
+	\]
+	
+	Given the fact that $f(f^{-1}(X) \subseteq X$ for every $X \subseteq Y$, we have
+	\[
+		f(X) \subseteq O_{\lambda_1} \cup \ldots \cup O_{\lambda_n}
+	\]
+	which completes the proof.
+\end{proof}
+
+\subsection{Uniform Continuity}
+
+Let $f : I \subseteq \textbf{R} \longrightarrow \textbf{R}$, and $x_o \in I$. Remember the definition of continuity. When does $\delta$ depends on $\delta (\varepsilon, x_0)$ and when does it only depends on $\varepsilon$? 
+
+Consider the following example.
+
+\begin{example}
+	Let $f(x) = 3x+1$. We have that $f$ is continuous at $c \in \textbf{R}$.
+	\[
+		| f(x) - f(c) | = | 3x+1 - (3c+1) | = 3 |x-c|
+	\]
+	
+	Hence, given $\varepsilon > 0$, choose $\delta = \varepsilon/3$.
+	\[
+		| x - c | < \delta \implies | f(x) - f(c) | = 3 |x-c| < 3 \frac{\varepsilon}{3} = \varepsilon
+	\]
+	
+	And notice that $\delta$ only depends on $\varepsilon$.
+\end{example}
+
+\begin{example}
+	Consider $f(x) = x^2$, which is continuous at $c \in \textbf{R}$. 
+	\[
+		| f(x) - f(c) | = |x^2 - c^2| = |(x-c)(x+c)| = |x-c| |x+c|
+	\]
+	
+	It is necessary, in some way, to `control' the term $|x-c| |x+c|$. To do let, let $\varepsilon > 0$ be given.
+	
+	If we control $|x-c|$, we control the product. Suppose that $|x-c| < 1$. Then,
+	\[
+		|x+c| = |x-c + 2c| \leq |x-c| + |2c| < 1 + 2|c|
+	\]
+	
+	If we also have $| x- c | < \frac{\varepsilon}{1 + 2 |c|}$, then
+	\[
+		|x-c| |x+c| < \frac{\varepsilon}{1+2|c|} (1+2|c|) = \varepsilon
+	\]
+	and $|f(x) - f(c)| < \varepsilon$.
+	
+	Taking $\delta = \min \left\{ 1, \frac{\varepsilon}{1+2|c|} \right\}$, given $x \in \textbf{R}$ we have that 
+	\[
+		|x-c| < \delta \implies |f(x) - f(c)| < \varepsilon
+	\]
+\end{example}
+
+This examples motivate the succeeding definition.
+
+\begin{definition}[Uniform continuity]
+	Let $f : I \subseteq \textbf{R} \longrightarrow \textbf{R}$. We say that $f$ is \textbf{uniformly continuous} if for all $\varepsilon > 0$, there exists $\delta = \delta(\varepsilon) > 0$ such that if $x, y \in I$, and $|x-y| > \delta$, then $|f(x) - f(y)| < \varepsilon$.
+\end{definition}
+
+Please take notice on some of the differences between continuity and uniform continuity. Uniform continuity is defined on a set, whereas continuity can be defined at a single point.
+
+The biggest difference is the fact that in uniform continuity, the $\delta$ in the definition depends only on $\varepsilon$, and not on any point $c$ in the interval. To say it in another way, if the function is uniformly continuous, we can find a single number $\delta > 0$ which will suffice to prove continuity for all points $c$ of the interval.
+
+\begin{definition}[Lipschitz]
+	Let $f : I \subseteq \textbf{R} \longrightarrow \textbf{R}$. We say that $f$ is \textbf{Lipschtiz} if there exists $M > 0$, such that 
+	\[
+		|f(x) - f(y) | \leq M |x-y| \, \forall x,y \in I
+	\]
+\end{definition}
+
+\begin{example}
+	\[
+		| \sin(x) - \sin(y) | \leq |x-y|
+	\]
+\end{example}
+
+\begin{theorem}
+	Every Lipschitz function is uniformly continuous. 
+\end{theorem}
+
+\begin{proof}
+	Let $f$ be a Lipschitz function. By definition, there exists $M > 0$ such that
+	\[
+		|f(x) - f(y) | \leq M |x-y| \, \forall x,y \in I
+	\]
+	
+	Given $\varepsilon > 0$, let $\delta = \varepsilon/M$, which depends only on $\varepsilon$.
+	
+	If $|x-y| < \delta$, we have
+	\[
+		|f(x) - f(y) | \leq M |x-y| < M \delta = M \frac{\varepsilon}{M} = \varepsilon
+	\]
+\end{proof}
+
+\begin{theorem}[Criterion for Discontinuity]
+	Let $f : I \subseteq \textbf{R} \longrightarrow \textbf{R}$. Then $f$ is uniformly continuous if and only if for all pairs of sequences $(x_n)$ and $(y_n)$ in $I$ satisfying $x_n - y_n \longrightarrow 0$, we have that $f(x_n) - f(y_n) \longrightarrow 0$.
+\end{theorem}
+
+\begin{proof}
+	$(\Rightarrow).$ Let $(x_n)$, $(y_n)$ be sequences in $I$ with $x_n - y_n \longrightarrow 0$. We are going to show that $f(x_n) - f(y_n) \longrightarrow 0$.
+	
+	Let $\varepsilon > 0$ be given. Since $f$ is uniformly continuous by hypothesis, there exists $\delta = \delta(\varepsilon) > 0$ such that
+	\[
+		|x_n - y_n| < \delta \implies |f(x_n) - f(y_n)| < \varepsilon
+	\]
+	
+	Due to the fact that $x_n - y_n \longrightarrow 0$, there exists $n_0 \in \textbf{N}$ such that $|x_n - y_n| < \delta$ whenever $n > n_0$. Therefore, for all $n > n_0$, we have that 
+	\[
+		|f(x_n) - f(y_n)| < \varepsilon \text{ and } f(x_n) - f(y_n) \longrightarrow 0 
+	\]
+	
+	$(\Leftarrow).$ Suppose that $f$ is not uniformly continuous. We are going to construct squences $(x_n)$ and $(y_n)$ in $I$ with $x_n - y_n \longleftarrow 0$ but $f(x_n) - f(y_n) \not\longrightarrow 0$.
+	
+	If $f$ does not satisfy the definition of uniform continuity, then there exists $\varepsilon > 0$ such that for all $\delta > 0$ there exists $x_\delta, \, y_\delta \in I$ with $| x_\delta - y_\delta | < \delta$ but $| f(x_\delta ) - f(y_\delta )| \geq \varepsilon$.
+	
+	Then, for $\varepsilon > 0$ (it exists!), we take $\delta = 1/n$, $n \in \textbf{N}$. In this way, we have $ |x_n - y_n| < 1/n$ and $x_n - y_n \longrightarrow 0$.
+	
+	Because of our hypothesis, we must have $f(x_n) - f(y_n) \longrightarrow 0$. However, $|f(x_n) - f(y_n)| \geq \varepsilon > 0$, for all $n \in \textbf{N}$, and $f(x_n) - f(y_n) \not\longrightarrow 0$, which is a contradiction.
+\end{proof}
+
+\begin{example}
+	Show that $f : (0,1) \longrightarrow \textbf{R}$, $f(x) = 1/x$ is not uniformly continuous.
+	
+	Consider $x_n = \frac{1}{n}$ and $y_n = \frac{1}{2n}$. Then
+	\[
+		x_n - y_n = \frac{1}{n} - \frac{1}{2n} = \frac{1}{2n} \longrightarrow 0
+	\]
+	
+	However,
+	\[
+		f(x_n) - f(y_n) = n - 2n = -n \not\longrightarrow 0
+	\]
+\end{example}
+
+\begin{theorem}
+	Let $K$ be a compact set. Then, every continuous function $f : K \longrightarrow \textbf{R}$ is uniformly continuous.
+\end{theorem}
+
+\begin{proof}
+	Suppose that $f$ is not uniformly continuous. Then, there exists $\varepsilon > 0$ and $(x_n), (y_n) \subseteq [a,b]$ such that $x_n - y_n \longrightarrow $ and
+	\[
+		|f(x_n) - f(y_n)| \geq \varepsilon \, \forall n \in \textbf{N}
+	\]
+	
+	Given that $(x_n) \subseteq [a,b]$ is a bounded sequence, $(x_n)$ has a convergent subsequence $(x_{n_k})_{k \in \textbf{N}}$, i.e., $x_{n_k} \longrightarrow x_0$ and $x_0 \in [a,b]$.
+	
+	Now, since $f$ is continuous at $x_0$, $f(x_{n_k}) \longrightarrow f(x_0)$.
+	
+	On the other hand, because $x_n - y_n \longrightarrow 0$, $x_{n_k} - y_{n_k} \longrightarrow 0$. Beyond that fact, since $x_{n_k} \longrightarrow x_0$, also $y_{n_k} \longrightarrow x_0$. Indeed, $y_{n_k} = x_{n_k} - (x_{n_k} - y_{n_k}) \longrightarrow x_0 - 0 = x_0$.
+	
+	Using the fact that $f$ is continuous at $x_0$, $f(y_{n_k}) \longrightarrow f(x_0)$. 
+	
+	Therefore,
+	\[
+		f(x_{n_k}) - f(y_{n_k}) \longrightarrow f(x_0) - f(x_0) == 0
+	\]
+	which contradicts our hypothesis that $|f(x_n) - f(y_n)| \geq \varepsilon$.
+	
+	Hence, $f$ is uniformly continuous.
+\end{proof}
+
+% R. 99, A. 129
 
 \newpage
 \nocite{*}

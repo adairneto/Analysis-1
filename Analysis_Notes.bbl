@@ -1,0 +1,23 @@
+\begin{thebibliography}{Abb01}
+
+\bibitem[Abb01]{abbott2001understanding}
+Stephen Abbott.
+\newblock {\em Understanding Analysis}.
+\newblock Springer, 2001.
+
+\bibitem[Lim19]{lima2013curso}
+Elon~Lages Lima.
+\newblock Curso de an{\'a}lise vol. 1. 15{\textordfeminine} edi{\c{c}}{\~a}o.
+\newblock {\em Rio de Janeiro: IMPA - Projeto Euclides}, 2019.
+
+\bibitem[Rud76]{rudin1976principles}
+Walter Rudin.
+\newblock {\em Principles of Mathematical Analysis}.
+\newblock McGraw-Hill New York, 1976.
+
+\bibitem[Tao06]{tao2006analysis}
+Terrence Tao.
+\newblock {\em Analysis (Volume 1)}.
+\newblock Hindustan Book Agency, 2006.
+
+\end{thebibliography}
