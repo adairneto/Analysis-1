@@ -2323,7 +2323,7 @@ This definition can be extended naturally for the whole interval $I$.
 	Hence, $V_{\delta_2}(c) \subseteq A$ and $c$ is not the supremum of $A$, which contradicts our hypothesis that $c = \sup A$. Hence, $f(c) = 0$.
 \end{proof}
 
-\begin{theorem}[Intermediate Value Theorem]
+\begin{theorem}[Intermediate Value Theorem]\label{thm:IVT}
 	Let $f:[a,b] \longrightarrow \textbf{R}$ be a continuous function. Then, for each $\gamma$ between $f(a)$ and $f(b)$, there exists $c \in [a,b]$ such that $f(c) = \gamma$.
 \end{theorem}
 
@@ -2356,7 +2356,7 @@ This definition can be extended naturally for the whole interval $I$.
 	Analogously, we can proof that $f$ is lower bounded.
 \end{proof}
 
-\begin{theorem}[Weierstrass]
+\begin{theorem}[Weierstrass]\label{thm:weierstrass}
 	Every continuous function $f : [a,b] \longrightarrow \textbf{R}$ has a maximum and minimum value, i.e., there exists $c, d \in [a,b]$ such that
 	\[
 		f(c) \leq f(x) \leq f(d) , \, \forall x \in [a,b]
@@ -2491,7 +2491,7 @@ The biggest difference is the fact that in uniform continuity, the $\delta$ in t
 	\]
 \end{proof}
 
-\begin{theorem}[Criterion for Discontinuity]
+\begin{theorem}[Sequential Criterion for Absence of Uniform Continuity]
 	Let $f : I \subseteq \textbf{R} \longrightarrow \textbf{R}$. Then $f$ is uniformly continuous if and only if for all pairs of sequences $(x_n)$ and $(y_n)$ in $I$ satisfying $x_n - y_n \longrightarrow 0$, we have that $f(x_n) - f(y_n) \longrightarrow 0$.
 \end{theorem}
 
@@ -2531,7 +2531,7 @@ The biggest difference is the fact that in uniform continuity, the $\delta$ in t
 	\]
 \end{example}
 
-\begin{theorem}
+\begin{theorem}[Heine–Cantor]
 	Let $K$ be a compact set. Then, every continuous function $f : K \longrightarrow \textbf{R}$ is uniformly continuous.
 \end{theorem}
 
@@ -2662,6 +2662,315 @@ In this course, we will use `differentiable' and `derivable' to mean the same th
 		(g \circ f)'(a) = g'(f(a)) \cdot f'(a)
 	\]
 \end{theorem}
+
+\begin{proof}
+	We're going to define some auxiliary functions $\varphi : I \longrightarrow \textbf{R}
+$, where $\varphi(a) = 0$ and
+\[
+	\varphi(x) = \frac{f(x) - f(a)}{x - a} - f'(a) \text{ if } x \neq a
+\]
+and also $\psi : J \longrightarrow \textbf{R}$ such that $\psi(f(a)) = 0$ and
+\[
+	\psi(y) = \frac{g(y) - g(f(a))}{y - f(a)} - g'(f(a)) \text { if } y \neq f(a)
+\]
+
+Notice that 
+\begin{equation*}
+	\begin{aligned}
+		g(f(x)) - g(f(a)) &= [\psi(f(x)) + g'(f(a))] \cdot [f(x) - f(a)] \\
+		&= [g'(f(a)) + \psi(f(x))] \cdot [f'(a) + \varphi(x)](x-a)
+	\end{aligned}
+\end{equation*}
+
+Hence,
+\begin{equation*}
+	\begin{aligned}
+	\lim_{x \to a} \frac{g(f(x)) - g(f(a))}{x - a} &= \lim_{x \to a} ([g'(f(a)) + \psi(f(x))] \cdot [f'(a) + \varphi(x)]) \\
+	&= g'(f(a)) \cdot f'(a)
+	\end{aligned}
+\end{equation*}
+
+\end{proof}
+
+\begin{lemma}
+	Let $f : [a,b] \longrightarrow \textbf{R}$ continuous and injective satisfying $f(a) < f(b)$. Then
+	\begin{enumerate}
+		\item $f$ is strictly increasing.
+		\item The inverse function $f^{-1} : [f(a), f(b)] \longrightarrow [a,b]$ is continuous.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	\textbf{Exercise.}
+\end{proof}
+
+\begin{theorem}[Inverse Function]
+	Let $f : I \longleftarrow \textbf{R}$, continuous and strictly increasing (or strictly decreasing). Suppose that $f$ is differentiable at a point $a \in I$ and that $f'(a) \neq 0$. Then its inverse function is differentiable at $b = f(a)$ and
+	\[
+		(f^{-1})'(b) = \frac{1}{f'(a)}
+	\]
+\end{theorem}
+
+\begin{proof}
+	Let $J = f(I)$. By the \hyperref[thm:IVT]{Intermediate Value Theorem}, $J$ is an interval. By the previous lemma, $f^{-1} : J \longrightarrow I$ is continuous. Then,
+	\[
+		(f^{-1})'(b) = \lim_{y \to b} \frac{f^{-1}(y) - f^{-1}(b)}{y-b} = \lim_{x \to a} \frac{x - a}{f(x) - f(a)} = \frac{1}{f'(a)}
+	\]
+\end{proof}
+
+\subsection{Mean Value Theorems}
+
+\begin{definition}
+	Let $I \subseteq \textbf{R}$ open, $f : I \longrightarrow \textbf{R}$ and $a \in I$.
+	\begin{itemize}
+		\item $f$ has a \textbf{local maximum} at $a$ if there exists $\delta > 0$ such that $f(x) \leq f(a)$ for all $x \in (a-\delta, a+\delta) \subseteq I$.
+		\item $f$ has a \textbf{local minima} at $a$ if there exists $\delta > 0$ such that $f(x) \geq f(a)$ for all $x \in (a-\delta, a+\delta) \subseteq I$.
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}
+	Consider an open interval $I \subseteq \textbf{R}$, $f : I \longrightarrow \textbf{R}$ and $f$ differentiable at $a \in I$. If $f$ has a local maximum or local minima at $a$, then $f'(a) = 0$.
+\end{theorem}
+
+\begin{proof}
+	Suppose, without loss of generality, that $f$ has a local maxima at $a$ and let $\delta > 0$ such that $f(a) \geq f(x)$ for all $x \in (a-\delta, a+\delta)$. Then,
+	\[
+		\lim_{x \to a^{+}} \frac{f(x) - f(a)}{x-a} \leq 0
+	\]
+	and
+	\[
+		\lim_{x \to a^{-}} \frac{f(x) - f(a)}{x-a} \geq 0
+	\]
+	
+	Since $f$ is differentiable at $a$, both limits are equal. Therefore,
+	\[
+		\lim_{x \to a} \frac{f(x) - f(a)}{x-a} = 0
+	\]
+\end{proof}
+
+\begin{theorem}[Rolle]\label{thm:rolle}
+	Let $f : [a,b] \longrightarrow \textbf{R}$ continuous in $[a,b]$ and differentiable in $(a,b)$ satisfying $f(a) = f(b)$. Then, there exists $c \in (a,b)$ such that $f'(c) = 0$.
+\end{theorem}
+
+\begin{proof}
+	By \hyperref[thm:weierstrass]{Weierstrass' theorem}, $f$ has a maximum and minimum value. That means that there exists $x_1, x_2 \in [a,b]$ such that $f(x_1) \leq f(x) \leq f(x_2)$ for all $x \in [a,b]$. If $f$ is constant in $[a,b]$, then $f'(x) = 0$ for all $x \in [a,b]$.
+	
+	Suppose that $f$ is not constant. Then $f(x_1) < f(x_2)$. Since $f(a) = f(b)$, it follows that $x_1 \in (a,b)$ or $x_2 \in (a,b)$. If $x_1 \in (a,b)$, from the previous theorem we have $f'(x_1) = 0$. If $x_2 \in (a,b)$, we have $f'(x_2) = 0$.
+\end{proof}
+
+The idea behind this theorem is that the tangent line will be, at some point, parallel to the $x$-axis.
+
+\begin{theorem}[Generalized Mean Value]\label{thm:generalized-mean-value}
+	If $f$ and $g$ are continuous functions on $[a,b]$ and differentiable in $(a,b)$, then there exists $c \in (a,b)$ at which
+	\[
+		[f(b) - f(a)]g'(c) = [g(b) - g(a)]f'(c)
+	\]
+\end{theorem}
+
+\begin{proof}
+	Let $h : [a,b] \longrightarrow \textbf{R}$ defined as
+	\[
+		h(x) = [f(x) - f(a)][g(b) - g(a)] - [f(b) - f(a)][g(x) - g(a)]
+	\]
+	
+	Since $h$ is continuous on $[a,b]$ and differentiable in $(a,b)$, and $h(a) = 0 = h(b)$, by the \hyperref[thm:rolle]{Rolle's theorem}, there exists $c \in (a,b)$ such that 
+	\[
+		h'(c) = f'(c)[g(b)-g(a)] - [f(b) - f(a)]g'(c) = 0
+	\]
+\end{proof}
+
+\begin{theorem}[Mean Value]\label{thm:mean-value}
+	If $f$ is a continuous function on $[a,b]$ and differentiable in $(a,b)$, then there exists $c \in (a,b)$ at which
+	\[
+		f'(c) = \frac{f(b) - f(a)}{b-a}
+	\]
+\end{theorem}
+
+\begin{proof}
+	Take $g(x) = x$ in the \hyperref[thm:generalized-mean-value]{Generalized Mean Value Theorem}.
+\end{proof}
+
+\begin{corollary}
+	Suppose that $f$ is differentiable in $(a,b)$.
+	\begin{enumerate}
+		\item If $f'(x) \geq 0$ for all $x \in (a,b)$, then $f$ is monotonically increasing.
+		\item If $f'(x) = 0$ for all $x \in (a,b)$, then $f$ is constant.
+		\item If $f'(x) \leq 0$ for all $x \in (a,b)$, then $f$ is monotonically decreasing.
+	\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+	$1.$ Suppose that $f'(x) \geq 0$ for all $x \in (a,b)$ and let $x_1 < x_2$ both in $(a,b)$. By the \hyperref[thm:mean-value]{Mean Value Theorem}, there exists $c \in (x_1, x_2)$ such that
+	\[
+		\frac{f(x_2) - f(x_1)}{x_2 - x_1} = f'(c) \geq 0
+	\]
+	
+	Given that $x_2 - x_1 > 0$, then $f(x_2) - f(x_1) \geq 0$. I.e., $f(x_2) \geq f(x_1)$.
+	
+	$2.$ Suppose that $x,y \in (a,b)$ and $x < y$. By the \hyperref[thm:mean-value]{Mean Value Theorem}, there exists $c \in [x,y]$ such that
+	\[
+		f'(c) = \frac{f(y) - f(x)}{y-x} = 0
+	\]
+	
+	Hence, $f(y) = f(x)$. Since $x$ and $y$ are arbitrary, $f(x) = k$.
+	
+	$3.$ Analogous to $1.$
+\end{proof}
+
+\begin{corollary}
+	If $f$ and $g$ are differentiable function on the interval $(a,b)$ and $f'(x) = g'(x)$ for all $x \in (a,b)$, then $f(x) = g(x) + k$.
+\end{corollary}
+
+\begin{proof}
+	Define $h(x) = f(x) - g(x)$. Then
+	\[
+		h'(x) = f'(x) - g'(x) = 0 \iff h(x) = k
+	\]
+	
+	I.e.,
+	\[
+		h(x) = f(x) - g(x) = k \iff f(x) = g(x) + k
+	\]
+\end{proof}
+
+\begin{theorem}
+	If $f : [a,b] \longrightarrow \textbf{R}$ is continuous on $[a,b]$ and differentiable in $(a,b)$ with $|f'(x)| \leq M$ for all $x \in (a,b)$ and $M \in \textbf{R}$. Then $f$ is Lipschtiz on $[a,b]$.
+\end{theorem}
+
+\begin{proof}
+	By the \hyperref[thm:mean-value]{Mean Value Theorem},
+	\[
+		\left| \frac{f(x) - f(y)}{x-y} \right| = |f'(c)| \leq M
+	\]
+	for all $c \in (x,y)$. Therefore,
+	\[
+		|f(x) - f(y)| \leq M |x-y|
+	\]
+\end{proof}
+
+\subsection{L'Hospital's Rule}
+
+We are going to present the L'Hospital's Rule in two separate theorems in order to better specify their conditions.
+
+\begin{theorem}
+	Let $f, g : (a, x_0) \cup (x_0, b) \longrightarrow \textbf{R}$ be differentiable functions such that
+	\begin{enumerate}
+		\item $\lim_{x \to x_0} f(x) = 0$ and $\lim_{x \to x_0} g(x) = 0$.
+		\item $g'(x) \neq 0$ and $g(x) \neq 0$ for all $x$ in the domain of definition.
+	\end{enumerate}
+	
+	Then
+	\[
+		\lim_{x \to x_0} \frac{f'(x)}{g'(x)} = L \in [- \infty , \infty] \implies \lim_{x \to x_0} \frac{f(x)}{g(x)} = L
+	\]
+\end{theorem}
+
+\begin{proof}
+	\textbf{Step 1.} We extend $f$ and $g$ to the whole interval $(a,b)$ defining
+	\[
+	    f(x_0) = \lim_{x \to x_0} f(x) = 0 \text{ and } g(x_0) = \lim_{x \to x_0} g(x) = 0
+	\]
+	
+	Notice that with these definitions, $f$ and $g$ are continuous on $(a,b)$.
+
+	\textbf{Step 2.} Given that $f(x_0) = g(x_0) = 0$, we have
+	\[
+		\frac{f(x)}{g(x)} = \frac{f(x) - f(x_0)}{g(x) - g(x_0)} 
+	\]
+	for all $x \neq x_0$.
+
+	Let $x > x_0$. By the \hyperref[thm:generalized-mean-value]{Generalized Mean Value Theorem}, there exists $y_x \in (x_0, x)$ such that 
+	\[
+		\frac{f(x) - f(x_0)}{g(x) - g(x_0)} = \frac{f'(y_x)}{g'(y_x)}
+	\]
+
+	If $x < x_0$, there exists $y_x \in (x, x_0)$ such that the same result holds. In both cases, if $x \neq x_0$ in $(a,b)$, then
+	\[
+		\frac{f(x) - f(x_0)}{g(x) - g(x_0)} = \frac{f(x)}{g(x)} = \frac{f'(y_x)}{g'(y_x)}
+	\]
+	for some $y_x$ between $x$ and $x_0$.
+
+	\textbf{Step 3.} Let $\varepsilon > 0$. Since $\lim_{z \to x_0} f'(z)/g'(z) = L$, there exists $\delta >0$ such that if $z \in (x_0 - \delta, x_0 + \delta)\setminus \{ x_0 \}$, then
+	\[
+		\left| \frac{f'(z)}{g'(z)} - L \right| < \varepsilon
+	\]
+
+	For the same $\delta$, let $x \in (x_0 - \delta, x_0 + \delta)\setminus \{ x_0 \}$. By the step 2, there exists $y_x$ between $x_0$ and $x$ such that
+	\[
+		\frac{f(x)}{g(x)} = \frac{f'(y_x)}{g'(y_x)}
+	\]
+
+	Hence, $y_x \in (x_0 - \delta, x_0 + \delta)\setminus \{ x_0 \}$, which implies
+	\[
+		\left| \frac{f'(y_x)}{g'(y_x)} - L \right| < \varepsilon
+	\]
+
+	Therefore, for this $x \in (x_0 - \delta, x_0 + \delta)\setminus \{ x_0 \}$, we obtain
+	\[
+		\left| \frac{f(x)}{g(x)} - L \right| < \varepsilon
+	\]
+
+	Given that $\varepsilon$ is arbitrary,
+	\[
+		\lim_{x \to x_0} \frac{f(x)}{g(x)} = L
+	\]
+\end{proof}
+
+\begin{theorem}
+	Let $f, g : (a, \infty) \longrightarrow \textbf{R}$ be differentiable functions such that
+	\begin{enumerate}
+		\item $\lim_{x \to \infty} f(x) = 0$ and $\lim_{x \to \infty} g(x) = 0$.
+		\item $g'(x) \neq 0$ for all $x$ in the domain of definition.
+	\end{enumerate}
+	
+	Then 
+	\[
+		\lim_{x \to \infty} \frac{f'(x)}{g'(x)} = L \in [- \infty , \infty] \implies \lim_{x \to \infty} \frac{f(x)}{g(x)} = L
+	\]
+\end{theorem}
+
+\begin{proof}
+	Without loss of generality, we're going to suppose $a > 0$. Let $\varphi, \psi : (0, 1/a) \longrightarrow \textbf{R}$ defined as 
+	\[
+		\varphi(t) = f\left( \frac{1}{t} \right) \text{ and } \psi(t) = g \left( \frac{1}{t} \right)
+	\]
+
+	By the Chain Rule, $\varphi$ and $\psi$ are differentiable. Moreover,
+	\[
+	    \lim_{t \longrightarrow 0^+} \varphi(t) = \lim_{x \to \infty} f(x) = 0 \text{ and } \lim_{t \longrightarrow 0^+} \psi(t) = \lim_{x \to \infty} g(x) = 0
+	\]
+
+	Therefore,
+	\begin{itemize}
+		\item $\psi'(t) = g' \left( \frac{1}{t} \right) \cdot \left( \frac{-1}{t^2} \right) \neq 0$ for all $t \in (0, 1/a)$.
+		\item $\lim_{t \to 0^+} \frac{\varphi'(t)}{\psi'(t)} = \lim_{t \to 0^+} \frac{f' \left( \frac{1}{t} \right)}{g' \left( \frac{1}{t} \right)} = L$.
+	\end{itemize}
+
+	I.e.,
+	\[
+		\lim_{x \to \infty} \frac{f(x)}{g(x)} = L
+	\]
+\end{proof}
+
+\begin{example}
+	Generalize the L'Hospital's Rule for the next cases:
+	\begin{enumerate}
+		\item $\lim_{x \to x_0} |f(x)| = \infty$ and $\lim_{x \to x_0} |g(x)| = \infty$.
+		\item $\lim_{x \to \infty} |f(x)| = \infty$ and $\lim_{x \to \infty} |g(x)| = \infty$.
+	\end{enumerate}
+\end{example}
+
+Pay attention to the fact that every hypothesis is necessary and the reciprocal is not valid.
+
+\begin{theorem}
+	$f : \textbf{R} \longrightarrow \textbf{R}$ is continuous iff. for all $X \subseteq \textbf{R}$, we have $f(\overline{X}) \subseteq \overline{f(X)}$.
+\end{theorem}
+
+\begin{proof}
+	\textbf{Exercise.}
+\end{proof}
+
+This theorem is equivalent to $f (\lim x_n) = \lim f(x_n)$.
 
 \newpage
 \nocite{*}

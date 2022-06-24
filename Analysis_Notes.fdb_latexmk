@@ -1,18 +1,18 @@
 # Fdb version 3
-["bibtex Analysis_Notes"] 1655254220 "Analysis_Notes.aux" "Analysis_Notes.bbl" "Analysis_Notes" 1655254384
-  "Analysis_Notes.aux" 1655254383 6094 1df40f09e012b2b7b421d7e9cb578aa1 "pdflatex"
+["bibtex Analysis_Notes"] 1656078091 "Analysis_Notes.aux" "Analysis_Notes.bbl" "Analysis_Notes" 1656078410
+  "Analysis_Notes.aux" 1656078409 6695 8bdba4db10fa30264308c55a221b6864 "pdflatex"
   "Analysis_Notes.bib" 1653503122 621 561c151425cec36759649dcb67325151 ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/alpha.bst" 1291864736 23907 a5f93555796fb564b924339521f10a7c ""
   (generated)
   "Analysis_Notes.bbl"
   "Analysis_Notes.blg"
-["pdflatex"] 1655254380 "d:/Dropbox/1. Projects/MA502 - Análise 1/Analysis Notes/Analysis_Notes.tex" "Analysis_Notes.pdf" "Analysis_Notes" 1655254384
-  "Analysis_Notes.aux" 1655254383 6094 1df40f09e012b2b7b421d7e9cb578aa1 "pdflatex"
-  "Analysis_Notes.bbl" 1655254220 658 96a2fd4d7ba02cda98ef916fa250a88d "bibtex Analysis_Notes"
-  "Analysis_Notes.brf" 1655254383 110 f09640ee4c16854a7c3a87ce3746e850 "pdflatex"
-  "Analysis_Notes.out" 1655254383 3711 a34cfce242542e1ccd4ae6230dfebaad "pdflatex"
-  "Analysis_Notes.tex" 1655254378 137507 702e6a9607abc881db61c1c6f3d399bb ""
-  "Analysis_Notes.toc" 1655254383 2133 ccefe1a83d8d844cf0edf87b92c7e3a2 "pdflatex"
+["pdflatex"] 1656078405 "d:/Dropbox/1. Projects/MA502 - Análise 1/Analysis Notes/Analysis_Notes.tex" "Analysis_Notes.pdf" "Analysis_Notes" 1656078410
+  "Analysis_Notes.aux" 1656078409 6695 8bdba4db10fa30264308c55a221b6864 "pdflatex"
+  "Analysis_Notes.bbl" 1656078091 658 96a2fd4d7ba02cda98ef916fa250a88d "bibtex Analysis_Notes"
+  "Analysis_Notes.brf" 1656078409 110 f09640ee4c16854a7c3a87ce3746e850 "pdflatex"
+  "Analysis_Notes.out" 1656078409 4016 22deb01396f1c19538fd61d13c1bc2e0 "pdflatex"
+  "Analysis_Notes.tex" 1656078402 148585 abaa6431d0983a7f620d40bd9b4df3be ""
+  "Analysis_Notes.toc" 1656078409 2303 ec8680b99b159fe53e32a5af760ba221 "pdflatex"
   "C:/Users/Adair Neto/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1654733751 407563 40b337ddc689f1bb7a324147a5a882dc ""
   "C:/Users/Adair Neto/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1640875952 9772374 84ff70d5f98bb15a343e2107ffd42a7d ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ly1/texnansi.enc" 1015804800 6938 5135be6a8802f13a7faf296d1959a1ab ""
@@ -235,6 +235,7 @@
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/tools/indentfirst.sty" 1636710260 1618 786b14c5a3e144c3a51452d08232d18b ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/ucs/ucs.sty" 1369148985 28731 5723d81d568db410592a59b85fb3eaae ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/ucs/ucsencs.def" 1369148985 22806 c53c9d0d16c65bef2b157515c9d9f658 ""
+  "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/ucs/uni-32.def" 1368440143 8033 ee5a06eead35a732222f876800c8f10f ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/ucs/uni-global.def" 1368440143 1375 8a855db83af5d6753ccbbd32e6a8a901 ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/ucs/utf8x.def" 1369148985 8240 21f7ac37aafb6cfeddbb196b8bfd6280 ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
@@ -242,7 +243,7 @@
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1623005690 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1626884962 123 a302f2c651a95033260db60e51527ae8 ""
   "cantor-set.png" 1653500385 12588 64ebdd358a42197cd0a1fef264073364 ""
-  "d:/Dropbox/1. Projects/MA502 - Análise 1/Analysis Notes/Analysis_Notes.tex" 1655254378 137507 702e6a9607abc881db61c1c6f3d399bb ""
+  "d:/Dropbox/1. Projects/MA502 - Análise 1/Analysis Notes/Analysis_Notes.tex" 1656078402 148585 abaa6431d0983a7f620d40bd9b4df3be ""
   "quiver.sty" 1648570847 1606 0a56787eafe2108d7ab3bda12c3165bc ""
   "sup-inf.png" 1648321672 15315 db552d6c99257f61d2beea33ab705984 ""
   (generated)
