@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[tikz,12pt,a4paper]{article}
 \usepackage[american]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -68,6 +68,31 @@
 
 \usepackage{quiver}
 
+% TikZ
+\usepackage{pgfplots} 
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\pgfplotsset{
+    every non boxed x axis/.style={
+        xtick align=center,
+        enlarge x limits=true,
+        x axis line style={line width=0.8pt, -latex}
+},
+    every boxed x axis/.style={}, enlargelimits=false
+}
+\pgfplotsset{
+    every non boxed y axis/.style={
+        ytick align=center,
+        enlarge y limits=true,
+        y axis line style={line width=0.8pt, -latex}
+},
+    every boxed y axis/.style={}, enlargelimits=false
+}
+\usetikzlibrary{
+   arrows.meta,
+  intersections,
+}
+
 %\usepackage{sectsty}
 %\subsectionfont{\color{RubineRed}}
 \hypersetup{
@@ -113,7 +138,7 @@ Intuitively, a \textbf{set} is any collection of objects, called \textbf{element
 	\end{enumerate}
 \end{definition}
 
-Analysis is concerned mainly about the construction of Real Numbers and functions between them. The concept of function also comes from set theory. Here, we'll define it and introduce some basic nomenclature to help our discussions.
+Analysis is concerned mainly with the construction of Real Numbers and functions between them. The concept of function also comes from set theory. Here, we'll define it and introduce some basic nomenclature to help our discussions.
 
 \begin{definition}[Function]
 	A \textbf{function} from a set $A$ into a set $B$ is a rule or mapping that associates each element $x \in A$ to a single element of $B$, denoted by $f : A \longrightarrow B$. And the expression $f(x)$ represents the element of $B$ associated with $x$ by $f$.
@@ -439,7 +464,7 @@ The following two propositions will give tools to discover whether a set is infi
 	\end{itemize}
 \end{example}
 
-Similarly to what occured in our discussion about finite and infinite sets, some propositions follow from this definition.
+Similar to what occurred in our discussion about finite and infinite sets, some propositions follow this definition.
 
 \begin{proposition}\label{propcount1}
 	Every infinite set contains an infinite and countable subset.
@@ -546,7 +571,7 @@ Finally, we can define the integers and rational numbers as follows:
 	\]
 \end{definition}
 
-These definitions about finite and countable sets can be summarized in the following definition.
+These definitions of finite and countable sets can be summarized in the following definition.
 
 \begin{definition}
 	For any positive integer $n$, let $J_n$ be the set containing the integers $1, 2, \ldots, n$, and let $J$ be the set of all positive integers. For any set $A$, we say that:
@@ -573,7 +598,7 @@ Abbott: ``Rational numbers are densely nestled together.''
 But rational number system has gaps and the real number system fills
 these gaps.
 
-Every rational number has a decimal expansion (just use the euclidean algorithm). This expansion can be terminal or infinite and may note be unique.
+Every rational number has a decimal expansion (just use the euclidean algorithm). This expansion can be terminal or infinite and may not be unique.
 
 \begin{proposition}
 	Every rational number with infinite decimal expansion is periodic, which means that \[ x = q, d_1 \ldots d_n d_{n+1} \ldots d_k d_{n+1} \ldots d_k d_{n+1} \ldots = q, d_1 \ldots d_n \overline{d_{n+1} d_k} \]
@@ -2066,7 +2091,7 @@ That is,
   \centering
   \includegraphics[width=\textwidth]{cantor-set}
   \caption{The Cantor set \cite{abbott2001understanding}}
-  \label{fig:sup-inf}
+  \label{fig:cantor-set}
 \end{figure}
 
 The question now is: what remains in $C$? 
@@ -2971,6 +2996,281 @@ Pay attention to the fact that every hypothesis is necessary and the reciprocal 
 \end{proof}
 
 This theorem is equivalent to $f (\lim x_n) = \lim f(x_n)$.
+
+\begin{definition}[Contraction]
+	If $f : \textbf{R} \longrightarrow \textbf{R}$, $0 < c < 1$ and
+	\[
+		| f(x) - f(y) | \leq c | x - y |
+	\]
+	for every $x, y \in \textbf{R}$, then $f$ is said to be a \textbf{contraction} of $\textbf{R}$ into $\textbf{R}$.
+\end{definition}
+
+\subsection{Taylor's Theorem}
+
+\begin{definition}
+	Let $f: I \subseteq \textbf{R} \longrightarrow \textbf{R}$. Then $f$ is said to be of \textbf{class $C^k$} if the derivatives $f', f'', \ldots, f^{(k)}$ exist and are continuous on $I$.
+
+	We define $C^0$ to be the class of continuous functions.
+\end{definition}
+
+Our goal in this section is to, given $f$ of class $C^n$, to construct a polynomial $P_n(x)$ such that 
+\[
+	P_n(x_0) = f(x_0) \text{ and } P_n^{(k)}(x_0) = f^{(k)}(x_0) \text{ for } 1 \leq k \leq n
+\]
+
+\begin{theorem}[Taylor's Theorem]\label{thm:taylor}
+	Let $n \in \textbf{N}$ and $I = (a,b)$. Suppose that $f : I \longrightarrow \textbf{R}$ is of class $C^n$ on $I$ and $f^{(n+1)}$ exists in the interval $(a,b)$.
+
+	If $x_0 \in I$, then for any other $x \in I$, there exists a point $c$ between $x$ and $x_0$ such that
+	\begin{equation*}
+		\begin{aligned}
+			f(x) &= f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2!}(x - x_0)^2 + \ldots \\ &+ \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n + \frac{f^{(n+1)}(c)}{(n+1)!} (x - x_0)^{n+1}
+		\end{aligned}
+	\end{equation*}
+\end{theorem}
+
+\begin{proof}
+	Let $x, x_0 \in I$ and $J$ be the closed interval with endpoints $x_0$ and $x$. We define the function $F : J \longrightarrow \textbf{R}$ as 
+	\[
+		F(t) = f(x) - f(t) - f'(t)(x-t) - \ldots - \frac{f^{(n)}(t)}{n!} (x-t)^n
+	\]
+
+	Notice that
+	\[
+		F'(t) = 0 - f'(t) - [(-1)f'(t) + (x-t) f''(t)] - \ldots = - \frac{f^{(n+1)}(t)}{n!} (x - t)^n
+	\]
+
+	Now define $G : J \longrightarrow \textbf{R}$ as
+	\[
+		G(t) = F(t) - \left( \frac{x-t}{x - x_0} \right)^{n+1} F(x_0)
+	\]
+	and notice that 
+	\[
+		G(x_0) = F(x_0) - F(x_0) = 0 \text{ and } G(x) = F(x) = 0
+	\]
+
+	More than that, $G$ is continuous on $J$, since $F$ is continuous (being the sum and product of continuous functions).
+
+	By \hyperref[thm:rolle]{Rolle's theorem}, there exists $c$ between $x_0$ and $x$ such that $G'(c) = 0$ and
+	\[
+		G'(c) = F'(c) + \frac{(n+1)}{(x - x_0)} \left( \frac{x-c}{x - x_0} \right)^{n} F(x_0)
+	\]
+
+	Therefore,
+	\begin{equation*}
+		\begin{aligned}
+			F(x_0) &= - F'(c) \frac{1}{(n+1)} \frac{(x - x_0)^{n+1}}{(x - c)^n} = \frac{1}{(n+1)} \frac{(x - x_0)^{n+1}}{(x - c)^n} \frac{(x - c)^n}{n!} f^{(n+1)}(c) \\
+			&= \frac{f^{(n+1)}(c)}{(n+1)!} (x - x_0)^{n+1}
+		\end{aligned}
+	\end{equation*}
+
+	Then $f(x) = P_n(x) + R_n(x)$, where $R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!} (x - x_0)^{n+1}$ is called the \textbf{Lagrange remainder} and $P_n$ is the \textbf{Taylor polynomial} of $f$ at $x_0$ with degree $n$.
+\end{proof}
+
+\begin{theorem}
+	Let $I$ be an interval, $x_0$ an interior point of $I$ and $ n \geq 2 $. Suppose that $f$ is of class $C^n$ in a neighbourhood of $x_0$ and that $f'(x_0) = f''(x_0) = \ldots = f^{(n-1)}(x_0) = 0$, but $f^{(n)}(x_0) \neq 0$. Then,
+	\begin{enumerate}
+		\item If $n$ is even and $f^{(n)}(x_0) > 0$, then $f$ as a local minimum at $x_0$.
+		\item If $n$ is even and $f^{(n)}(x_0) < 0$, then $f$ as a local maximum at $x_0$.
+		\item If $n$ is odd, then $f$ does not have a maximum or minimum at $x_0$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	By \hyperref[thm:taylor]{Taylor's theorem} in $x_0$, we can find for some $x \in I$
+	\[
+		f(x) = P_{n-1}(x) + R_{n-1}(x) = f(x_0) + \frac{f^{(n)}(c)}{n!} (x - x_0)^n 
+	\]
+	where $c$ is a point between $x_0$ and $x$.
+
+	Given that $f^{(n)}$ is continuous, if $f^{(n)}(x_0) \neq 0$, then there exists an interval $U$ which contains $x_0$ such that $f^{(n)}(x)$ has the same sign as $f^{(n)}(x_0)$ for each $x \in U$.
+
+	If $x \in U$, then the point $c$ is also in $U$ and $f^{(n)}(c)$ and $f^{(n)}(x_0)$ have the same sign.
+
+	\textbf{1.} If $n$ is even and $f^{(n)}(x_0) > 0$, then for each $x \in U$ we have $f^{(n)}(c) > 0$ and $(x - x_0)^n \leq 0$ and, therefore, $R_{n-1}(x) \geq 0$. Hence, $f(x) \geq f(x_0)$ for $x \in U$ and $f$ has a local minimum at $x_0$.
+
+	\textbf{2.} and \textbf{3. Exercise.}
+\end{proof}
+
+\subsection{Convex Functions}
+
+\begin{definition}[Convex functions]
+	A function $f : (a,b) \longrightarrow \textbf{R}$ is \textbf{convex} if
+	\[
+		f[\lambda x_1 + (1-\lambda)x_2] \leq \lambda f(x_1) + (1-\lambda) f(x_2)
+	\]
+	whenever $x_1, x_2 \in (a,b)$ and $0 \leq \lambda \leq 1$.
+\end{definition}
+
+\begin{tikzpicture} % Source: https://tex.stackexchange.com/a/394982
+	\begin{axis}[width=5in,axis equal image,
+		axis lines=middle,
+		xmin=0,xmax=8,
+		xlabel=$x$,ylabel=$y$,
+		ymin=-0.25,ymax=4,
+		xtick={\empty},ytick={\empty}, axis on top
+	]
+	
+	% 
+	\addplot[thick,domain=0.25:7,violet,name path = A]  {-x/3 + 2.75} coordinate[pos=0.4] (m) ;
+	\draw[thick,teal, name path =B] (0.15,4) .. controls (1,1) and (4,0) .. (6,2) node[pos=0.95, color=black, right]  {$f(x)$} coordinate[pos=0.075] (a1)  coordinate[pos=0.95] (a2);
+	\path [name intersections={of=A and B, by={a,b}}];
+	
+	% 
+	\draw[densely dashed] (0,0) -| node[pos=0.5, color=black, label=below:$a$] {}(a1);
+	\draw[densely dashed] (0,0) -| node[pos=0.5, color=black, label=below:$x_{1}$] {}(a);
+	\draw[densely dashed, name path=D] (3,0) -|node[pos=0.5, color=black, label=below:$\lambda x_{1}+ (1-\lambda)x_{2}$] {} node[pos=1, fill,circle,inner sep=1pt] {}(m);
+	\draw[densely dashed] (0,0) -|node[pos=0.5, color=black, label=below:$x_{2}$] {}(b);
+	\draw[densely dashed] (0,0) -|node[pos=0.5, color=black, label=below:$b$] {}(a2);
+	
+	% 
+	\path [name intersections={of=B and D, by={c}}] node[fill,circle,inner sep=1pt] at (c) {}; 
+	
+	% 
+	\node[anchor=south west, text=black] (d) at (0.75,3) {$f[\lambda x_{1}+(1-\lambda)x_{2}]$};
+	\node[anchor=south west, text=black] (e) at (5,2.5) {$\lambda f(x_{1})+(1-\lambda)f(x_{2})$};
+	\draw[-{Latex[width=4pt,length=6pt]}, densely dashed] (d) -- (c);
+	\draw[-{Latex[width=4pt,length=6pt]}, densely dashed] (e) -- (m);
+	\end{axis}
+	\label{Convex function}
+\end{tikzpicture}
+
+\begin{lemma}
+	\[ f''(a) = \lim_{h \to 0} \frac{f(a+h) - f(a) + f(a-h)}{h^2} \]
+\end{lemma}
+
+\begin{proof}
+	\textbf{Exercise.}
+\end{proof}
+
+\begin{theorem}
+	Let $I$ be an open interval and $f : I \longrightarrow \textbf{R}$ of class $C^2$ on $I$. Then $f$ if convex if, and only if, $f''(x) \geq 0$ for every $x \in I$.
+\end{theorem}
+
+\begin{proof}
+	$(\Rightarrow)$ Given $a \in I$, let $h$ be such that $a+h$ and $a-h$ are in $I$. Then
+	\[
+		a = \frac{1}{2} ((a+h) + (a-h))
+	\]
+	and since $f$ is convex on $I$, 
+	\[
+		f(a) = f \left( \frac{1}{2} (a+h) + \frac{1}{2}(a-h) \right) \leq \frac{1}{2} f(a+h) + \frac{1}{2} f(a-h)
+	\]
+
+	Hence, $f(a+h) - 2f(a) + f(a-h) \geq 0$. Since $h^2 > 0$ for $h \neq 0$, we have 
+	\[
+		f''(a) = \lim_{h \to 0} \frac{f(a+h) - f(a) + f(a-h)}{h^2} \geq 0
+	\]
+
+	$(\Leftarrow)$ Here, we use \hyperref[thm:taylor]{Taylor's theorem}. Let $x_1$ and $x_2$ be points in $I$ and let $0 < t < 1$ and $x_0 = (1-t) x_1 + t x_2$. Applying Taylor on $f$ at $x_0$, we obtain a point $c_1$ between $x_0$ and $x_1$ such that
+	\[
+		f(x_1) = f(x_0) + f'(x_0)(x_1 - x_0) + \frac{1}{2} f''(c_1)(x_1 - x_0)^2
+	\]
+
+	Analogously, there exists $c_2$ between $x_0$ and $x_2$ such that
+	\[
+		f(x_2) = f(x_0) + f'(x_0)(x_2 - x_0) + \frac{1}{2} f''(c_2)(x_2 - x_0)^2
+	\]
+
+	Given that $f''(x) \geq 0$, then the term
+	\[
+		R = \frac{1}{2}(1-t)f''(c_1)(x_1 - x_0)^2 + \frac{1}{2}t f''(c_2)(x_2 - x_0)^2 \geq 0
+	\]
+
+	Therefore,
+	\begin{equation*}
+		\begin{aligned}
+			(1-t)f(x_1) + tf(x_2) &= f(x_0) + f'(x_0)((1-t)x_1 + tx_2 - x_0) \\
+			&+ \frac{1}{2}(1-t)f''(c_1) (x_1 - x_0)^2 + \frac{1}{2}t f''(c_2)(x_2 - x_0)^2 \\
+			&= f(x_0) + R \geq f(x_0) = f((1-t)x_1 + t x_2)
+		\end{aligned}
+	\end{equation*}
+\end{proof}
+
+\subsection{Newton's Method}
+
+The goal in this section is to find solutions to $f(x) = 0$. To do that, we're going to suppose $f$ of class $C^2$ on an interval $I \subseteq \textbf{R}$ and $f'(x) \neq 0$ for all $x \in I$.
+
+It is known that the tangent line to $(x_0, y_0) \in \text{graph}(f)$ is given by
+\[
+	y - y_0 = f'(x_0)(x - x_0)	
+\]
+
+Taking $y = 0$, we have $-y_0 = f'(x_0) x - f'(x_0) x_0$. Hence,
+\[
+	x = \frac{f'(x_0) x_0 - f(x_0)}{f'(x_0)} = x_0 - \frac{f(x_0)}{f'(x_0)} =: x_1
+\]
+
+And then we also define
+\[
+	x_2 = x_1 - \frac{f(x_1)}{f'(x_1)}, \ldots, x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]
+
+If $x_n \longrightarrow a$, taking $n \longrightarrow \infty$, we have
+\[
+	a = a - \frac{f(a)}{f'(a)} \implies f(a) = 0
+\]
+
+Defining
+\[
+	N(x) = x - \frac{f(x)}{f'(x)}
+\]
+and differentiating
+\begin{equation*}
+	\begin{aligned}
+	N'(x) &= 1 - \frac{[f'(x)\cdot f'(x)] - f(x)\cdot f''(x)}{[f'(x)]^2} \\
+	&= \frac{[f'(x)]^2}{[f'(x)]^2} - \frac{[f'(x)]^2 - f(x)\cdot f''(x)}{[f'(x)]^2} \\
+	&= \frac{f(x)\cdot f''(x)}{[f'(x)]^2}
+	\end{aligned}
+\end{equation*}
+
+If $N(a) = a$, then $f(a) = 0$. That means that fixed points of $N$ give the zeroes of $f$. 
+
+Finally, if $f(a) = 0$, then
+\[
+	N'(a) = \frac{f(a) \cdot f''(a)}{[f'(a)]^2} = 0
+\]
+
+Hence, for values of $x$ close enough to $a$, $N$ is a contraction and, therefore, has a fixed point. In fact, $a$ is an attractor of $N$.
+
+\begin{example}
+	\textbf{Compute an approximation for $\sqrt[p]{c}$, $c > 0$ and $p \in \textbf{N}$}.
+
+	Define $f(x) = x^p - c$ over the interval $[\sqrt[p]{c}, \infty)$. Then
+	\[
+		f'(x) = p x^{p-1} \text{ and } N(x) = x - \frac{x^p - c}{p x^{p-1}}
+	\]
+
+	Simplifying, 
+	\[
+		N(x) = \frac{1}{p} \frac{x^{p-1} (px - x + c/x^{p-1})}{x^{p-1}} = \frac{1}{p} [(p-1)x + c/x^{p-1}]
+	\]
+	and differentiating
+	\[
+		N'(x) = \frac{p-1}{p} \left[ 1 - \frac{c}{x^p}\right]
+	\]
+
+	Hence, $0 \leq N'(x) \leq \frac{p-1}{p}$, i.e., $N$ is a contraction and, therefore, has a fixed point.
+\end{example}
+
+\begin{example}
+	Let $f(x) = x - x^3$. Then 
+	\[
+		N(x) = x - \frac{x - x^3}{1 - 3x^2} = \frac{-2x^3}{1-3x^2}
+	\]
+
+	If $x_0 = \sqrt{5}/5$, then
+	\[
+		f(x_0) = \frac{4 \sqrt{5}}{25} = y_0 \implies y = \frac{2x}{5} + \frac{2 \sqrt{5}}{25} = 0 \iff x_1 = \frac{-\sqrt{5}}{5}
+	\]
+
+	Repeating the process,
+	\[
+		y = \frac{2x}{5} - \frac{2 \sqrt{5}}{25} = 0 \iff x_2 = \frac{\sqrt{5}}{5}
+	\]
+
+	Hence, $N$ does not converge for $x_0$.
+\end{example}
 
 \newpage
 \nocite{*}

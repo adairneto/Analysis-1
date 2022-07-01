@@ -26,4 +26,7 @@
 \contentsline {subsection}{\numberline {6.1}The Derivative}{58}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Mean Value Theorems}{61}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}L'Hospital's Rule}{64}{subsection.6.3}%
-\contentsline {section}{References}{67}{section*.2}%
+\contentsline {subsection}{\numberline {6.4}Taylor's Theorem}{66}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Convex Functions}{68}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Newton's Method}{70}{subsection.6.6}%
+\contentsline {section}{References}{73}{section*.2}%
