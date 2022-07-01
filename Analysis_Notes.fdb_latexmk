@@ -1,18 +1,18 @@
 # Fdb version 3
-["bibtex Analysis_Notes"] 1656698020 "Analysis_Notes.aux" "Analysis_Notes.bbl" "Analysis_Notes" 1656698070
-  "Analysis_Notes.aux" 1656698069 7415 2382757062ecab39ca4d66dde441dd87 "pdflatex"
+["bibtex Analysis_Notes"] 1656699131 "Analysis_Notes.aux" "Analysis_Notes.bbl" "Analysis_Notes" 1656699235
+  "Analysis_Notes.aux" 1656699234 7415 5d0c18a4590430c65b77bd144bcfa105 "pdflatex"
   "Analysis_Notes.bib" 1656697782 796 2abb8d55d77447125e8704016bdb8c43 ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/alpha.bst" 1291864736 23907 a5f93555796fb564b924339521f10a7c ""
   (generated)
   "Analysis_Notes.bbl"
   "Analysis_Notes.blg"
-["pdflatex"] 1656698063 "d:/Dropbox/1. Projects/MA502 - Análise 1/Analysis Notes/Analysis_Notes.tex" "Analysis_Notes.pdf" "Analysis_Notes" 1656698070
-  "Analysis_Notes.aux" 1656698069 7415 2382757062ecab39ca4d66dde441dd87 "pdflatex"
-  "Analysis_Notes.bbl" 1656698020 745 17f6c47967301298ec838f95e0a411b0 "bibtex Analysis_Notes"
-  "Analysis_Notes.brf" 1656698069 155 f26068f85fd5dccba4d99391966308cf "pdflatex"
-  "Analysis_Notes.out" 1656698069 4434 26d71cac541f056db423c450d65a3388 "pdflatex"
-  "Analysis_Notes.tex" 1656698060 159430 d9ff499905b59d92ce8d4c593fd6ebce ""
-  "Analysis_Notes.toc" 1656698069 2551 94b50a0b6bafb7907b716c2b226e808c "pdflatex"
+["pdflatex"] 1656699228 "d:/Dropbox/1. Projects/MA502 - Análise 1/Analysis Notes/Analysis_Notes.tex" "Analysis_Notes.pdf" "Analysis_Notes" 1656699235
+  "Analysis_Notes.aux" 1656699234 7415 5d0c18a4590430c65b77bd144bcfa105 "pdflatex"
+  "Analysis_Notes.bbl" 1656699131 745 17f6c47967301298ec838f95e0a411b0 "bibtex Analysis_Notes"
+  "Analysis_Notes.brf" 1656699234 155 f26068f85fd5dccba4d99391966308cf "pdflatex"
+  "Analysis_Notes.out" 1656699234 4434 26d71cac541f056db423c450d65a3388 "pdflatex"
+  "Analysis_Notes.tex" 1656699226 159783 a95d4266846e5d60dc2ce1a6cd3567cf ""
+  "Analysis_Notes.toc" 1656699234 2551 b624b4f424d978613b5f4b340276dbb8 "pdflatex"
   "C:/Users/Adair Neto/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1656696863 407563 40b337ddc689f1bb7a324147a5a882dc ""
   "C:/Users/Adair Neto/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1640875952 9772374 84ff70d5f98bb15a343e2107ffd42a7d ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ly1/texnansi.enc" 1015804800 6938 5135be6a8802f13a7faf296d1959a1ab ""
@@ -283,7 +283,7 @@
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1623005690 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "C:/Users/Adair Neto/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1626884962 123 a302f2c651a95033260db60e51527ae8 ""
   "cantor-set.png" 1653500385 12588 64ebdd358a42197cd0a1fef264073364 ""
-  "d:/Dropbox/1. Projects/MA502 - Análise 1/Analysis Notes/Analysis_Notes.tex" 1656698060 159430 d9ff499905b59d92ce8d4c593fd6ebce ""
+  "d:/Dropbox/1. Projects/MA502 - Análise 1/Analysis Notes/Analysis_Notes.tex" 1656699226 159783 a95d4266846e5d60dc2ce1a6cd3567cf ""
   "quiver.sty" 1648570847 1606 0a56787eafe2108d7ab3bda12c3165bc ""
   "sup-inf.png" 1648321672 15315 db552d6c99257f61d2beea33ab705984 ""
   (generated)
